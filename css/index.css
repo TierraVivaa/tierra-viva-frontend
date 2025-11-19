@@ -1,0 +1,11 @@
+/*#region historiascampo.html*/
+  .carouselH5 {
+    text-shadow: 2px 2px 2px rgb(27, 27, 27);
+    font-weight: bolder;
+  }
+  @media (min-width: 992px) {
+    .carouselH5 {
+      font-size: 3rem;
+    }
+  }
+/*#endregion historiascampo.html*/
