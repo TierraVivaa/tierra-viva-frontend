@@ -31,3 +31,93 @@ footer h5 {
 footer li {
     margin: 10px;
 }
+
+/* Sección Equipo, cuidado */
+
+.equipo h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00B412 !important
+}
+
+.equipo {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.miembros {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;         
+    gap: 20px;               
+}
+
+.miembro {
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    background: #F5E9DA;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    
+}
+
+.miembro img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+   
+}
+
+.miembro:hover {
+    transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.miembro:hover img {
+    transform: rotateY(-10deg);
+}
+
+.miembro h4 {
+    margin: 8px 0 4px;
+    font-size: 16px;
+}
+
+.miembro p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Sección Historia, cuidado */
+
+
+
+.titulo-seccion {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #00B412;
+}
+
+.subtitulo {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.galeria-img {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.galeria-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.galeria-img:hover img {
+  transform: scale(1.08);
+}
