@@ -2,9 +2,13 @@
 
 ## Integrantes
 [Daniel Felipe Suárez Zambrano](https://github.com/D4nf313)
+
 [Darwin Sebastian Ortiz Caballero](https://github.com/IDarwinOrtizI)
+
 [Juan Felipe González Cano](https://github.com/dan802)
+
 [Margareth Villanueva Ramírez](https://github.com/Maggievira87)
+
 [Sara Palacio Cartagena](https://github.com/sarapalacio0115)
 
 ## Sobre el proyecto
