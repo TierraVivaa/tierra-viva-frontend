@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: #F5E9DA;
+    color: #000000;
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+footer a{
+    color: #000000;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer li {
+    margin: 10px;
+}
