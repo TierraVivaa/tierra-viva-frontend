@@ -13,3 +13,6 @@
 
 ## Sobre el proyecto
 Generation Colombia Cohorte 10
+
+### Entregas
+Entrega tarea 4 ✅
