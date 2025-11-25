@@ -20,4 +20,56 @@
 .accordion-button:focus {
     box-shadow: none !important;
     border-color: transparent !important;
+.form-container {
+background: #ffffff;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+max-width: 900px;
+margin: 40px auto;
+}
+
+.form-label {
+font-weight: 600;
+color: #00B412;
+}
+
+
+.form-control {
+border-radius: 12px;
+border: 1px solid #cfd6ff;
+padding: 10px 14px;
+}
+
+
+.form-select {
+border-radius: 12px;
+border: 1px solid #cfd6ff;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+border-color: #00B412;
+box-shadow: 0 0 0 0.2rem #00B412(29, 44, 186, 0.23);
+}
+
+
+.btn-primary {
+background: #00B412 !important;
+border: none;
+border-radius: 14px;
+padding: 12px 30px;
+font-size: 1.1rem;
+font-weight: 600;
+color: #fff;
+transition: 0.3s ease;
+}
+
+
+.btn-primary:hover {
+background: #7AD034  !important;
+transform: translateY(-2px);
+color: black !important;
+}
 }
