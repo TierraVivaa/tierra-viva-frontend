@@ -10,10 +10,44 @@ document.addEventListener("DOMContentLoaded", function () {
     // Validar todos los campos
     const isValid = validateForm();
 
-    if (isValid) {
-      // Si todo es válido, puedes enviar el formulario
-      alert("Formulario enviado correctamente");
-      form.reset();
+   if (isValid) {
+      // Mostrar estado de envío
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Enviando...";
+      submitBtn.disabled = true;
+
+      // Preparar datos para Formspree
+      const formData = new FormData(form);
+      
+      // Enviar a Formspree
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Éxito
+          alert("Formulario enviado correctamente. Te contactaremos pronto.");
+          form.reset();
+        } else {
+          // Error del servidor
+          throw new Error('Error en el servidor');
+        }
+      })
+      .catch(error => {
+        // Error de red o servidor
+        alert("Error al enviar el formulario. Por favor, intenta nuevamente.");
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        // Restaurar botón
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
     }
   });
 

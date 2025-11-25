@@ -62,32 +62,32 @@
         <div class="col">
    <div class="container mt-4">
     <h2 class="mb-4">Formulario de contacto</h2>
-    <form id="contactForm" class="p-4 bg-white shadow rounded" novalidate>
+    <form id="contactForm" action="https://formspree.io/f/xvgnlbnz"  method="POST" class="p-4 bg-white shadow rounded" novalidate>
         <div class="row mb-3">
             <div class="col-md-6">
                 <label class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
                 <div class="invalid-feedback">Por favor ingresa tu nombre completo</div>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="correo@ejemplo.com" required>
                 <div class="invalid-feedback">Por favor ingresa un correo electrónico válido</div>
             </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" placeholder="Número de contacto" required>
+            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Número de contacto" required>
             <div class="invalid-feedback">Por favor ingresa un número de teléfono válido</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Asunto</label>
-            <textarea class="form-control" id="asunto" rows="2" placeholder="Escribe el asunto" required></textarea>
+            <textarea class="form-control" id="asunto" name="asunto" rows="2" placeholder="Escribe el asunto" required></textarea>
             <div class="invalid-feedback">Por favor ingresa el asunto</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Rol</label>
-            <select class="form-select" id="rol" required>
+            <select class="form-select" id="rol" name="rol" required>
                 <option value="" selected disabled>Selecciona una opción</option>
                 <option value="proveedor">Proveedor</option>
                 <option value="comprador">Comprador</option>
@@ -96,7 +96,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Tu mensaje</label>
-            <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje" required></textarea>
+            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje" required></textarea>
             <div class="invalid-feedback">Por favor ingresa tu mensaje</div>
         </div>
 
