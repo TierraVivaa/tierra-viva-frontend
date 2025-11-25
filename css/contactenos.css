@@ -20,6 +20,7 @@
 .accordion-button:focus {
     box-shadow: none !important;
     border-color: transparent !important;
+}
 .form-container {
 background: #ffffff;
 padding: 30px;
@@ -71,5 +72,4 @@ transition: 0.3s ease;
 background: #7AD034  !important;
 transform: translateY(-2px);
 color: black !important;
-}
 }
