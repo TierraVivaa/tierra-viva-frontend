@@ -60,11 +60,14 @@ box-shadow: 0 0 0 0.2rem #00B412(29, 44, 186, 0.23);
 background: #00B412 !important;
 border: none;
 border-radius: 14px;
-padding: 12px 30px;
+padding: 12px 15px;
 font-size: 1.1rem;
 font-weight: 600;
+max-width: 300px;
 color: #fff;
 transition: 0.3s ease;
+display: block !important;
+margin:auto;
 }
 
 
