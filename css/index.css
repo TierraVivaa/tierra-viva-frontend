@@ -9,6 +9,10 @@ body {
     font-family: sans-serif;
 }
 
+main {
+    margin: 2rem;
+}
+
 footer {
     background-color: #F5E9DA;
     color: #000000;
