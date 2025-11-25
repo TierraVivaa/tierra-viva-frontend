@@ -56,16 +56,56 @@
   </nav>
  
   <main>
+     <!-- Formulario -->
     <div class="container text-center">
       <div class="row align-items-start">
         <div class="col">
-          Aquí va el formulario de hablemos
+          <div class="container mt-4">
+            <h2 class="mb-4">Formulario de contacto</h2>
+            <form class="p-4 bg-white shadow rounded">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nombre completo</label>
+                  <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" placeholder="correo@ejemplo.com">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="text" class="form-control" placeholder="Número de contacto">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Asunto</label>
+                <textarea class="form-control" rows="2" placeholder="Escribe el asunto"></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select class="form-select">
+                  <option selected disabled>Selecciona una opción</option>
+                  <option value="proveedor">Proveedor</option>
+                  <option value="comprador">Comprador</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Tu mensaje</label>
+                <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje"></textarea>
+              </div>
+  
+              <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
+          </div>
+  
+          <hr class="hr hr-blurry" />
+
         </div>
         <div class="col">
           <div>
             Aqui va la card de atención rápida
           </div>
-
+  
           <div>
             Aquí van las preguntas frecuentes
           </div>
