@@ -1,148 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TierraViva</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/home.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TierraViva</title>
-  <link rel="stylesheet" href="./css/index.css" />
-  <link rel="stylesheet" href="./css/home.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
 
-<body>
-  <!-- HEADER -->
-  <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="./assets/images/logo_tierra_viva.png" alt="Logoss" width="60" class="me-3" />
-      </a>
+  <body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/images/logo_tierra_viva.png"
+            alt="Logoss"
+            width="60"
+            class="me-3"
+          />
+        </a>
 
-      <!-- BOTÓN RESPONSIVE -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <!-- BOTÓN RESPONSIVE -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- MENÚ -->
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav mb-2 me-4 mb-lg-0 d-lg-flex align-items-lg-center gap-lg-3">
-          <li class="nav-item">
-            <a class="nav-link fw-semibold" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-semibold" href="#">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-semibold" href="#">Proveedores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-semibold" href="./html/historiasDeCampo.html">Historias de Campo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-semibold" href="./html/contactenos.html">Contáctenos</a>
-          </li>
-        </ul>
+        <!-- MENÚ -->
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul
+            class="navbar-nav mb-2 me-4 mb-lg-0 d-lg-flex align-items-lg-center gap-lg-3"
+          >
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#">Proveedores</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fw-semibold"
+                href="./html/historiasDeCampo.html"
+                >Historias de Campo</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="./html/contactenos.html"
+                >Contáctenos</a
+              >
+            </li>
+          </ul>
 
-        <!-- BOTÓN LOGIN -->
-        <a href="#" class="btn px-4 py-2" style="
+          <!-- BOTÓN LOGIN -->
+          <a
+            href="#"
+            class="btn px-4 py-2"
+            style="
               background-color: #000000;
               color: white;
               border-radius: 15px;
               width: auto;
-            ">Iniciar Sesión</a>
+            "
+            >Iniciar Sesión</a
+          >
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main>
-    <div>
-      <!-- CAROUSEL DEL INCIO -->
-    </div>
-    
-    <div>
-      <h2>Ofertas destacadas</h2>
-      <!-- CARDS DE OFERTAS DESTACADAS -->
-    </div>
+    <main>
+      <div>
+        <!-- CAROUSEL DEL INCIO -->
+      </div>
 
-    <div>
-      <h2>Nuestros Servicios</h2>
-      <!-- CARDS NUESTROS SERVICIOS -->
-    </div>
-
-    <div>
-      <h2>Marcas que vendemos</h2>
-      <!-- CAROUSEL DE LAS MARCAS -->
-    </div>
-
-    <div>
-      <h2>Suscríbete a nuestro boletín</h2>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <!-- Logo -->
-        <div class="col-md-3 m-auto">
-          <img src="./assets/images/logo_tierra_viva.png" alt="Logo" class="img-fluid" style="max-width: 250px" />
+      <section>
+        <div
+          style="
+            background: #7ad03a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+          "
+        >
+          <h2 style="color: white; font-weight: 800; margin: 0">
+            Ofertas destacadas
+          </h2>
         </div>
-
-        <!--Mapa del sitio-->
-        <div class="col-md-3 mb-4">
-          <h5>Mapa del Sitio</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Catálogo de Productos</a></li>
-            <li><a href="#">Proveedores</a></li>
-            <li><a href="#">Historia del campo</a></li>
-            <li><a href="#">Contáctenos</a></li>
-            <li><a href="#">Iniciar Sesión</a></li>
-            <li><a href="#">Registro</a></li>
-          </ul>
+        <div class="container section-store mt-4">
+          <div class="row" id="productos-agro"></div>
         </div>
+      </section>
 
-        <!-- Nuestos Servicios -->
-        <div class="col-md-3 mb-4">
-          <h5>Nuestro Servicio</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Domicilios</a></li>
-            <li><a href="#">Promociones</a></li>
-            <li><a href="#">Asesoramiento</a></li>
-            <li><a href="#">Suscríbete</a></li>
-          </ul>
-          <!-- Íconos -->
-          <div class="col-md-4 mb-1">
-            <h5>Síguenos</h5>
-            <a href="#"><i class="bi bi-facebook fs-4 me-2"></i></a>
-            <a href="#"><i class="bi bi-instagram fs-4 me-2"></i></a>
-            <a href="#"><i class="bi bi-telephone fs-4"></i></a>
+      <div>
+        <h2>Nuestros Servicios</h2>
+        <!-- CARDS NUESTROS SERVICIOS -->
+      </div>
+
+      <div>
+        <h2>Marcas que vendemos</h2>
+        <!-- CAROUSEL DE LAS MARCAS -->
+      </div>
+
+      <div>
+        <h2>Suscríbete a nuestro boletín</h2>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- Logo -->
+          <div class="col-md-3 m-auto">
+            <img
+              src="./assets/images/logo_tierra_viva.png"
+              alt="Logo"
+              class="img-fluid"
+              style="max-width: 250px"
+            />
+          </div>
+
+          <!--Mapa del sitio-->
+          <div class="col-md-3 mb-4">
+            <h5>Mapa del Sitio</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Catálogo de Productos</a></li>
+              <li><a href="#">Proveedores</a></li>
+              <li><a href="#">Historia del campo</a></li>
+              <li><a href="#">Contáctenos</a></li>
+              <li><a href="#">Iniciar Sesión</a></li>
+              <li><a href="#">Registro</a></li>
+            </ul>
+          </div>
+
+          <!-- Nuestos Servicios -->
+          <div class="col-md-3 mb-4">
+            <h5>Nuestro Servicio</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Domicilios</a></li>
+              <li><a href="#">Promociones</a></li>
+              <li><a href="#">Asesoramiento</a></li>
+              <li><a href="#">Suscríbete</a></li>
+            </ul>
+            <!-- Íconos -->
+            <div class="col-md-4 mb-1">
+              <h5>Síguenos</h5>
+              <a href="#"><i class="bi bi-facebook fs-4 me-2"></i></a>
+              <a href="#"><i class="bi bi-instagram fs-4 me-2"></i></a>
+              <a href="#"><i class="bi bi-telephone fs-4"></i></a>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="col-md-3 mb-4">
+            <h5>Contáctenos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">contacto@tierraviva.com</a></li>
+              <li><a href="#">ayuda@tierraviva.com</a></li>
+              <li><a href="#">+573210002211</a></li>
+              <li>Bogotá, Colombia</li>
+            </ul>
           </div>
         </div>
-
-        <!-- Contacto -->
-        <div class="col-md-3 mb-4">
-          <h5>Contáctenos</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">contacto@tierraviva.com</a></li>
-            <li><a href="#">ayuda@tierraviva.com</a></li>
-            <li><a href="#">+573210002211</a></li>
-            <li>Bogotá, Colombia</li>
-          </ul>
-        </div>
       </div>
+    </footer>
+    <!-- Derechos reservados-->
+    <div class="text-center py-2" style="background: #f5c46a">
+      <small>Todos los derechos reservados 2025</small>
     </div>
-  </footer>
-  <!-- Derechos reservados-->
-  <div class="text-center py-2" style="background: #f5c46a">
-    <small>Todos los derechos reservados 2025</small>
-  </div>
 
-  <script src="./js/home.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <script src="./js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
