@@ -1,3 +1,4 @@
+// El documento se ejecuta cuando el DOM (el HTML) está cargado completamente
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contactForm");
 
