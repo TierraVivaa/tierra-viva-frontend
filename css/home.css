@@ -1,23 +1,24 @@
-/* Sección Servicios, cuidado */
-
+/* Servicios ojo */
 .services-container {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin: 40px auto;
   max-width: 900px;
+  padding: 10px;
+  flex-wrap: wrap;   /* Ojo, dejarlo así para el responsive */
 }
 
 .card {
   background: #F5E9DA !important;
-  color: white;
+  color: #000;
   padding: 20px;
   width: 250px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0,0,0,.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-    text-align: center;
+  text-align: center;
   padding-top: 60px;
 }
 
@@ -28,7 +29,7 @@
 
 .card h3 {
   margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .card p {
@@ -36,30 +37,52 @@
 }
 
 .btn {
-    margin-top: 15px;
-    background: #00B412 !important;
-    color: black;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  margin-top: 15px;
+  background: #00B412 !important;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-    background: #7AD034 !important;
-    color: white !important;
+  background: #7AD034 !important;
+  color: white !important;
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   background-color: white;
   padding: 8px;
-  margin: -45px auto 10px auto;
+  margin: -45px auto 10px;
   display: block;
   box-shadow: 0 4px 8px rgba(0,0,0,.4);
 }
 
+/* Código para el diseño responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+}
