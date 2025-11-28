@@ -38,7 +38,7 @@ productosAgro.forEach((producto) => {
   col.classList.add("col-md-4");
 
   col.innerHTML = `
-    <div class="card product-card-agro shadow-sm">
+    <div class="card product-card-agro shadow-sm mt-3">
 
       <img src="${producto.imagen}" class="product-img-agro" alt="${
     producto.nombre
@@ -74,53 +74,57 @@ productosAgro.forEach((producto) => {
 
   contenedorAgro.appendChild(col);
 });
-document.getElementById("formBoletin").addEventListener("submit", function(event) {
-  event.preventDefault();
+document
+  .getElementById("formBoletin")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const correo = document.getElementById("correo").value;
-  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+    const correo = document.getElementById("correo").value;
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 
-  if (!emailValido) {
-    Swal.fire({
-      icon: "error",
-      title: "Correo inválido",
-      text: "Por favor escribe un correo válido.",
-    });
-    return;
-  }
-
-  const fechaActual = new Date().toLocaleString("es-CO", { timeZone: "America/Bogota" });
-
-  fetch("https://formsubmit.co/ajax/Contacto@tierraviva.co", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: correo,
-      fecha_suscripcion: fechaActual
-    })
-  })
-  .then(response => {
-    if (response.ok) {
-      Swal.fire({
-        icon: "success",
-        title: "¡Suscripción exitosa! 🌿",
-        text: "Tu correo fue enviado correctamente. Pronto recibirás novedades.",
-        confirmButtonText: "Aceptar"
-      });
-      document.getElementById("formBoletin").reset();
-    } else {
+    if (!emailValido) {
       Swal.fire({
         icon: "error",
-        title: "Error",
-        text: "Hubo un problema al enviar. Intenta más tarde."
+        title: "Correo inválido",
+        text: "Por favor escribe un correo válido.",
       });
+      return;
     }
-  })
-  .catch(() => {
-    Swal.fire({
-      icon: "error",
-      title: "Error de conexión",
-      text: "No se pudo enviar. Intenta de nuevo."
+
+    const fechaActual = new Date().toLocaleString("es-CO", {
+      timeZone: "America/Bogota",
     });
+
+    fetch("https://formsubmit.co/ajax/Contacto@tierraviva.co", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: correo,
+        fecha_suscripcion: fechaActual,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "¡Suscripción exitosa! 🌿",
+            text: "Tu correo fue enviado correctamente. Pronto recibirás novedades.",
+            confirmButtonText: "Aceptar",
+          });
+          document.getElementById("formBoletin").reset();
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Hubo un problema al enviar. Intenta más tarde.",
+          });
+        }
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Error de conexión",
+          text: "No se pudo enviar. Intenta de nuevo.",
+        });
+      });
   });
-});

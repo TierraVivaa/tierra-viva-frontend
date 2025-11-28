@@ -146,6 +146,9 @@ footer {
 /* ESTILOS CARD DESCUENTOS */
 
 /* === CARDS PARA PRODUCTOS DEL AGRO === */
+.section-store{
+    margin-top: 50px;
+}
 .product-card-agro {
   border-radius: 14px;
   overflow: hidden;
@@ -170,7 +173,7 @@ footer {
 .price-agro {
   color: #3a611f;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 
 .discount-agro {
@@ -196,4 +199,5 @@ footer {
 .product-card-agro .card-title {
   font-weight: bold;
   color: #000000;
+  font-size:1.5rem;
 }
