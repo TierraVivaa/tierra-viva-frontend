@@ -60,3 +60,13 @@ button:hover {
     font-weight: 700;
 }
 
+#imagenDerecha img{
+    width: 90%;       
+    height: 100%;        
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+#imagenIzquierda {
+    background-image:url(/assets/images/agregarProducto/vecteezy_colorful-outline-fruit-set-of-vector-illustrations-healthy_\ [Convertido]-02.png);
+}
