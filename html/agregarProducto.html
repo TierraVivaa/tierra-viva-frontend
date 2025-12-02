@@ -55,71 +55,70 @@
         </div>
     </nav>
 
-<main style="width: 100%;">
-    <div class="row">
-        <div class="col" id="imagenIzquierda">
-            <div
-                style="
-                    background: #7ad03a;
-                    padding: 15px;
-                    border-radius: 8px;
-                    text-align: center;
-                    margin-top: 2rem;
-                "
-            >
-                <h2 style="color: white; font-weight: 600; margin: 0; font-size: 30px;">
-                Crear Productos
-                </h2>
-            </div>
-            <form id="Formulario">
-                <label >Título del Producto</label>
-                <input type="text" placeholder="Nombre del producto" required>
+    <main style="width: 100%;">
+        <div class="container">
+            <div class="row align-items-start gx-4 gy-4">
+                <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+                <div class="col-12 col-lg-6" id="imagenIzquierda">
+                    <div class="card p-3" style="background:#7ad03a; border-radius:8px; margin-top:2rem;">
+                        <h2 style="color: white; font-weight: 600; margin: 0; font-size: 30px;">Crear Productos</h2>
+                    </div>
 
-                <label>Fecha de vencimiento</label>
-                <input type="date" required>
+                    <!-- formulario -->
+                    <form id="Formulario" class="mt-3">
+                        <label>Título del Producto</label>
+                        <input type="text" placeholder="Nombre del producto" required>
 
-                <label>Categoría</label>
-                <select required>
-                    <option value="">Seleccionar</option>
-                    <option>Vegetales</option>
-                    <option>Frutas</option>
-                    <option>tubérculos</option>
-                    <option>Semillas y granos</option>
-                    <option>Hierbas</option>
-                </select>
+                        <label>Fecha de vencimiento</label>
+                        <input type="date" required>
 
-                <label>Descripción del producto</label>
-                <textarea rows="3" placeholder="Describe el producto"></textarea>
+                        <label>Categoría</label>
+                        <select required>
+                            <option value="">Seleccionar</option>
+                            <option>Vegetales</option>
+                            <option>Frutas</option>
+                            <option>tubérculos</option>
+                            <option>Semillas y granos</option>
+                            <option>Hierbas</option>
+                        </select>
 
-                <label>Imagen del producto</label>
-                <input type="file" accept="image/*">
+                        <label>Descripción del producto</label>
+                        <textarea rows="3" placeholder="Describe el producto"></textarea>
 
-                <label>Precio por gramo (1g)</label>
-                <input type="number" step="0.01" placeholder="Ej: 50">
+                        <label>Imagen del producto</label>
+                        <input type="file" accept="image/*">
 
-                <label>Unidad por peso</label>
-                <select>
-                    <option>Gramos (g)</option>
-                    <option>Kilogramos (kg)</option>
-                    <option>Libras (lb)</option>
-                    <option>Onzas (oz)</option>
-                </select>
+                        <label>Precio por gramo (1g)</label>
+                        <input type="number" step="0.01" placeholder="Ej: 50">
 
-                <label>Cantidad posible</label>
-                <input type="number" placeholder="Peso">
+                        <label>Unidad por peso</label>
+                        <select>
+                            <option>Gramos (g)</option>
+                            <option>Kilogramos (kg)</option>
+                            <option>Libras (lb)</option>
+                            <option>Onzas (oz)</option>
+                        </select>
 
-                <div class="botones">
-                    <button type="submit">Crear Producto</button>
-                    <button type="button" onclick="location.href='listado.html'">Listado Productos</button>
+                        <label>Cantidad posible</label>
+                        <input type="number" placeholder="Peso">
+
+                        <div class="botones">
+                            <button type="submit">Crear Producto</button>
+                            <button type="button" onclick="location.href='listado.html'">Listado Productos</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
 
-        <div class="col img-fluid" id="imagenDerecha">
-            <img src="/assets/images/agregarProducto/vista-superior-de-verduras-frescas-como-pimientos-y-cebollas-de-colores-en-un-balde-sobre-una-superficie-de-madera.jpg" alt="Fondo">
+                <!-- COLUMNA DERECHA: IMAGEN -->
+                <div class="col-12 col-lg-6 d-flex justify-content-center align-items-start" id="imagenDerecha">
+                    <div class="img-wrapper w-100" style="max-width:720px;">
+                        <img src="/assets/images/agregarProducto/vista-superior-de-verduras-frescas-como-pimientos-y-cebollas-de-colores-en-un-balde-sobre-una-superficie-de-madera.jpg"
+                            alt="Fondo" class="img-fluid main-illustration">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 
 
     <!-- FOOTER -->
