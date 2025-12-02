@@ -55,65 +55,132 @@
         </div>
     </nav>
 
-    <main style="width: 100%;">
+    <main class="py-5" style="background: linear-gradient(135deg, #f8fff8 0%, #f0f8ea 100%);">
         <div class="container">
-            <div class="row align-items-start gx-4 gy-4">
+            <div class="row align-items-stretch g-4">
                 <!-- COLUMNA IZQUIERDA: FORMULARIO -->
-                <div class="col-12 col-lg-6" id="imagenIzquierda">
-                    <div class="card p-3" style="background:#7ad03a; border-radius:8px; margin-top:2rem;">
-                        <h2 style="color: white; font-weight: 600; margin: 0; font-size: 30px;">Crear Productos</h2>
-                    </div>
-
-                    <!-- formulario -->
-                    <form id="Formulario" class="mt-3">
-                        <label>Título del Producto</label>
-                        <input type="text" placeholder="Nombre del producto" required>
-
-                        <label>Fecha de vencimiento</label>
-                        <input type="date" required>
-
-                        <label>Categoría</label>
-                        <select required>
-                            <option value="">Seleccionar</option>
-                            <option>Vegetales</option>
-                            <option>Frutas</option>
-                            <option>tubérculos</option>
-                            <option>Semillas y granos</option>
-                            <option>Hierbas</option>
-                        </select>
-
-                        <label>Descripción del producto</label>
-                        <textarea rows="3" placeholder="Describe el producto"></textarea>
-
-                        <label>Imagen del producto</label>
-                        <input type="file" accept="image/*">
-
-                        <label>Precio por gramo (1g)</label>
-                        <input type="number" step="0.01" placeholder="Ej: 50">
-
-                        <label>Unidad por peso</label>
-                        <select>
-                            <option>Gramos (g)</option>
-                            <option>Kilogramos (kg)</option>
-                            <option>Libras (lb)</option>
-                            <option>Onzas (oz)</option>
-                        </select>
-
-                        <label>Cantidad posible</label>
-                        <input type="number" placeholder="Peso">
-
-                        <div class="botones">
-                            <button type="submit">Crear Producto</button>
-                            <button type="button" onclick="location.href='listado.html'">Listado Productos</button>
+                <div class="col-12 col-lg-6">
+                    <div class="sticky-top">
+                        <div class="card p-4 mb-4 border-0 shadow-sm" style="background:#7ad03a; border-radius: 12px;">
+                            <h1 class="h2 text-white fw-bold mb-0">Crear Nuevo Producto</h1>
+                            <p class="text-white mb-0 opacity-90">Completa el formulario para agregar un producto al
+                                catálogo</p>
                         </div>
-                    </form>
+
+                        <!-- FORMULARIO -->
+                        <form id="Formulario" class="p-4 shadow-lg border-0"
+                            style="background: #f5e9da; border-radius: 12px;">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Título del Producto *</label>
+                                <input type="text" class="form-control" placeholder="Ej: Zanahorias orgánicas" required>
+                                <div class="form-text">Nombre descriptivo del producto</div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Fecha de vencimiento *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Categoría *</label>
+                                    <select class="form-select" required>
+                                        <option value="">Seleccionar categoría</option>
+                                        <option>Vegetales</option>
+                                        <option>Frutas</option>
+                                        <option>Tubérculos</option>
+                                        <option>Semillas y granos</option>
+                                        <option>Hierbas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Descripción del producto</label>
+                                <textarea rows="4" class="form-control"
+                                    placeholder="Describe las características, beneficios y origen del producto..."></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Imagen del producto</label>
+                                <input type="file" class="form-control" accept="image/*">
+                                <div class="form-text">Formatos aceptados: JPG, PNG, WEBP (Máx. 5MB)</div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Precio por gramo (1g) *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" step="0.01" class="form-control" placeholder="50.00"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Unidad de peso</label>
+                                    <select class="form-select">
+                                        <option>Gramos (g)</option>
+                                        <option>Kilogramos (kg)</option>
+                                        <option>Libras (lb)</option>
+                                        <option>Onzas (oz)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Cantidad disponible *</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="1000" required>
+                                    <span class="input-group-text">unidades</span>
+                                </div>
+                            </div>
+
+                            <div class="botones d-grid gap-2 d-md-flex">
+                                <button type="submit" class="btn btn-success btn-lg px-4 flex-grow-1">
+                                    <i class="bi bi-check-circle me-2"></i>Crear Producto
+                                </button>
+                                <button type="button" class="btn btn-primary btn-lg px-4"
+                                    onclick="location.href='listado.html'">
+                                    <i class="bi bi-list-ul me-2"></i>Ver Listado
+                                </button>
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <small class="text-muted">* Campos obligatorios</small>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
-                <!-- COLUMNA DERECHA: IMAGEN -->
-                <div class="col-12 col-lg-6 d-flex justify-content-center align-items-start" id="imagenDerecha">
-                    <div class="img-wrapper w-100" style="max-width:720px;">
+                <!-- COLUMNA DERECHA: IMAGEN PREVIEW -->
+                <div class="col-12 col-lg-6">
+                    <div class="position-relative rounded-3 overflow-hidden shadow-lg" style="min-height: 600px;">
                         <img src="/assets/images/agregarProducto/vista-superior-de-verduras-frescas-como-pimientos-y-cebollas-de-colores-en-un-balde-sobre-una-superficie-de-madera.jpg"
-                            alt="Fondo" class="img-fluid main-illustration">
+                            alt="Verduras frescas orgánicas" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="position-absolute bottom-0 start-0 end-0 p-4"
+                            style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+                            <div class="text-white">
+                                <h3 class="h4 mb-2">Productos 100% Orgánicos</h3>
+                                <p class="mb-0 opacity-90">
+                                    Sube imágenes de alta calidad que muestren la frescura y calidad de tus productos
+                                    agrícolas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INFO ADICIONAL -->
+                    <div class="mt-4 p-4 rounded-3" style="background: #dbffdb; border-left: 4px solid #7ad03a;">
+                        <h4 class="h5 fw-bold mb-3">💡 Recomendaciones</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Usa imágenes con
+                                buena iluminación</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Incluye detalles
+                                del producto</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Describe el origen
+                                y proceso de cultivo</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Actualiza precios y stock
+                                regularmente</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -181,6 +248,7 @@
         <small>Todos los derechos reservados 2025</small>
     </div>
 
+    <script src="/js/agregarProductos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
