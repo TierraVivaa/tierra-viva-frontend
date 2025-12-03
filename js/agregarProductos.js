@@ -3,44 +3,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const btnFormulario = document.getElementById("btnFormulario");
     const form = document.getElementById("Formulario");
-    const datosFormulario = {};
 
     btnFormulario.addEventListener("click", function (e) {
         e.preventDefault();
 
-        // Cogemos todos los campos y les sacamos el value
+        const datosFormulario = {};
+
+        // 1️⃣ Tomamos todos los campos del formulario
         form.querySelectorAll("input, select, textarea").forEach(input => {
 
-            if(input.name === "imagen") {
-                // Añadimos la imagen si el usuario subió una imagen
-                if(input.files) {
-                    datosFormulario[input.name] = input.files[0].name;
+            if (input.name === "imagen") {
+                // Aquí NO guardamos el nombre del archivo como antes
+                // La conversión a Base64 la hacemos luego
+                if (input.files && input.files.length > 0) {
+                    datosFormulario["archivoImagen"] = input.files[0];  // guardamos temporalmente el archivo
                 }
-            }
-            else {
+            } else {
                 datosFormulario[input.name] = input.value;
             }
         });
 
-        // Obtenemos la fecha actual en milisegundos
+        // 2️⃣ Creamos ID basado en fecha
         const dateMS = Date.now();
-
-        // La añadimos como id, para despues borrar mas facilmente
         datosFormulario["id"] = dateMS;
-        console.info("Datos del formulario: ", datosFormulario);
-        
+
+        // 3️⃣ Si NO subió imagen → guardar sin Base64
+        if (!datosFormulario.archivoImagen) {
+            datosFormulario["imagen"] = null;
+            guardarEnLocalStorage(datosFormulario);
+            return;
+        }
+
+        // 4️⃣ SI hay imagen → Convertirla a Base64
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            datosFormulario["imagen"] = e.target.result;  // ← Base64 lista
+            delete datosFormulario.archivoImagen;         // ← Eliminamos el archivo temporal
+
+            guardarEnLocalStorage(datosFormulario);
+        };
+
+        reader.readAsDataURL(datosFormulario.archivoImagen);
+
+    });
+
+    // 5️⃣ Función para guardar en LocalStorage
+    function guardarEnLocalStorage(datosFormulario) {
+        console.info("Datos del formulario FINAL: ", datosFormulario);
+
         let productos = JSON.parse(localStorage.getItem("productosJSON")) || [];
+
         productos.push(datosFormulario);
         localStorage.setItem("productosJSON", JSON.stringify(productos));
-        alert("Producto añadido correctamente")
 
-        // Se ejecuta después de 3 segundos, limpia los campos del formulario
+        alert("Producto añadido correctamente");
+
+        // Limpiar formulario después de 3 segundos
         setTimeout(() => {
-            console.log("Limpiando campos del formulario");
-
             form.reset();
-
-            console.log("Campos limpiados");
         }, 3000);
-    });
+    }
+
 });
