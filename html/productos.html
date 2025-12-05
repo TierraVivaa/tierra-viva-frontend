@@ -1,301 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos</title>
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/productos.css" />
-        <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-  </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img
-            src="../assets/images/logo_tierra_viva.png"
-            alt="Logoss"
-            width="60"
-            class="me-3"
-          />
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/productos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+</head>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul
-            class="navbar-nav mb-2 me-4 mb-lg-0 d-lg-flex align-items-lg-center gap-lg-3"
-          >
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="./../index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="./productos.html"
-                >Productos</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="./historiasDeCampo.html"
-                >Historias de Campo</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="./contactenos.html"
-                >Contáctenos</a
-              >
-            </li>
-           <li class="nav-item position-relative">
-      <!-- Agrega position-relative al li padre -->
-      <a class="nav-link fw-semibold" href="#" title="Carrito de Compras" id="carritoLink">
-        <i id="btnCarrito" class="bi bi-cart-fill fs-2" style="color: #7AD03A;" id="carritoIcon"></i>
-        <!-- Agrega el badge dentro del mismo enlace -->
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
-              id="badgeCarrito" style="display: none;">
-          0
-        </span>
+<body>
+  <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./../index.html">
+        <img src="../assets/images/logo_tierra_viva.png" alt="Logoss" width="60" class="me-3" />
       </a>
-    </li>
-            </li>
-          </ul>
 
-          <a
-            href="../html/iniciarSesion.html"
-            class="btn px-4 py-2"
-            style="
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mb-2 me-4 mb-lg-0 d-lg-flex align-items-lg-center gap-lg-3">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="./../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="./productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="./historiasDeCampo.html">Historias de Campo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="./contactenos.html">Contáctenos</a>
+          </li>
+          <li class="nav-item position-relative">
+            <!-- Agrega position-relative al li padre -->
+            <a class="nav-link fw-semibold" href="#" title="Carrito de Compras" id="carritoLink">
+              <i id="btnCarrito" class="bi bi-cart-fill fs-2" style="color: #7AD03A;" id="carritoIcon"></i>
+              <!-- Agrega el badge dentro del mismo enlace -->
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                id="badgeCarrito" style="display: none;">
+                0
+              </span>
+            </a>
+          </li>
+          </li>
+        </ul>
+
+        <a href="../html/iniciarSesion.html" class="btn px-4 py-2" style="
               background-color: #000000;
               color: white;
               border-radius: 15px;
               width: auto;
-            "
-            >Iniciar Sesión</a
-          >
-        </div>
+            ">Iniciar Sesión</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <main>
-      <!-- Nuestros Productos -->
-      <div>
-        <div class="wrapped-title">
-          <h2 style="color: white; font-weight: 800; margin: 0">
-            Nuestros Productos
-          </h2>
-        </div>
-        <section class="cards-container">
-          <a href="#cafe" class="card-img">
-            <img src="../assets/images/catologo/S1.png" alt="Café" />
-          </a>
-
-          <a href="#granos" class="card-img">
-            <img src="../assets/images/catologo/S2.png" alt="Granos" />
-          </a>
-
-          <a href="#frutas" class="card-img">
-            <img src="../assets/images/catologo/S3.png" alt="Frutas" />
-          </a>
-
-          <a href="#verduras" class="card-img">
-            <img src="../assets/images/catologo/S4.png" alt="Verduras" />
-          </a>
-
-          <a href="#cereales" class="card-img">
-            <img src="../assets/images/catologo/S5.png" alt="Cereales" />
-          </a>
-
-          <a href="#tuberculos" class="card-img">
-            <img src="../assets/images/catologo/S6.png" alt="Tubérculos" />
-          </a>
-        </section>
+  <main>
+    <!-- Nuestros Productos -->
+    <div>
+      <div class="wrapped-title">
+        <h2 style="color: white; font-weight: 800; margin: 0">
+          Nuestros Productos
+        </h2>
       </div>
+      <section class="cards-container">
+        <a href="#cafe" class="card-img">
+          <img src="../assets/images/catologo/S1.jpg" alt="Café" />
+        </a>
 
-      <section>
-        <div class="wrapped-title">
-          <h2 style="color: white; font-weight: 800; margin: 0">
-            Productos mas vendidos
-          </h2>
-        </div>
+        <a href="#granos" class="card-img">
+          <img src="../assets/images/catologo/S2.jpg" alt="Granos" />
+        </a>
 
-        <div class="container section-store">
-          <div class="row" id="productos-agro"></div>
-        </div>
+        <a href="#frutas" class="card-img">
+          <img src="../assets/images/catologo/S3.jpg" alt="Frutas" />
+        </a>
+
+        <a href="#verduras" class="card-img">
+          <img src="../assets/images/catologo/S4.jpg" alt="Verduras" />
+        </a>
+
+        <a href="#cereales" class="card-img">
+          <img src="../assets/images/catologo/S5.jpg" alt="Cereales" />
+        </a>
+
+        <a href="#tuberculos" class="card-img">
+          <img src="../assets/images/catologo/S6.jpg" alt="Tubérculos" />
+        </a>
       </section>
+    </div>
 
-      <section>
-        <div class="wrapped-title">
-          <h2 style="color: white; font-weight: 800; margin: 0">Catalogo</h2>
-        </div>
-
-        <div class="container section-store">
-          <div class="row" id="productos-agro"></div>
-        </div>
-      </section>
-
-      <div>
-        <!-- Catálogo de productos -->
-        <div class="container section-store" id="contenedor-secciones"></div>
+    <section>
+      <div class="wrapped-title">
+        <h2 style="color: white; font-weight: 800; margin: 0">
+          Productos mas vendidos
+        </h2>
       </div>
-<!-- Agrega esto JUSTO ANTES de cerrar el </body> -->
-<div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #7ad03a; color: white;">
-        <h5 class="modal-title" id="modalCantidadLabel">Seleccionar cantidad</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      <div class="container section-store">
+        <div class="row" id="productos-agro"></div>
       </div>
-      <div class="modal-body">
-        <div class="text-center mb-3">
-          <img id="modalProductoImagen" src="" alt="Producto" class="img-fluid rounded" style="max-height: 120px;">
-        </div>
-        
-        <h6 id="modalProductoNombre" class="text-center mb-2"></h6>
-        <p class="text-center text-muted mb-3">
-          <span id="modalProductoPrecio" class="text-success fw-bold"></span> 
-          / <span id="modalProductoUnidad"></span>
-        </p>
-        
-        <!-- CONTROLES DE CANTIDAD -->
-        <div class="mb-4">
-          <label for="cantidadModal" class="form-label fw-bold">Cantidad:</label>
-          <div class="input-group input-group-lg">
-            <button class="btn btn-outline-secondary" type="button" id="btnDisminuir">-</button>
-            <input type="number" class="form-control text-center" id="cantidadModal" value="1" min="1">
-            <button class="btn btn-outline-secondary" type="button" id="btnAumentar">+</button>
+    </section>
+
+    <section>
+      <div class="wrapped-title">
+        <h2 style="color: white; font-weight: 800; margin: 0">Catalogo</h2>
+      </div>
+
+      <div class="container section-store">
+        <div class="row" id="productos-agro"></div>
+      </div>
+    </section>
+
+    <div>
+      <!-- Catálogo de productos -->
+      <div class="container section-store" id="contenedor-secciones"></div>
+    </div>
+    <!-- Agrega esto JUSTO ANTES de cerrar el </body> -->
+    <div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #7ad03a; color: white;">
+            <h5 class="modal-title" id="modalCantidadLabel">Seleccionar cantidad</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="form-text text-center mt-1">Mínimo 1 unidad</div>
-        </div>
-        
-        <!-- RESUMEN -->
-        <div class="alert alert-light border">
-          <div class="row">
-            <div class="col-6">
-              <strong>Total:</strong>
+          <div class="modal-body">
+            <div class="text-center mb-3">
+              <img id="modalProductoImagen" src="" alt="Producto" class="img-fluid rounded" style="max-height: 120px;">
             </div>
-            <div class="col-6 text-end">
-              <span id="modalTotal" class="fw-bold text-success fs-5">$0</span>
+
+            <h6 id="modalProductoNombre" class="text-center mb-2"></h6>
+            <p class="text-center text-muted mb-3">
+              <span id="modalProductoPrecio" class="text-success fw-bold"></span>
+              / <span id="modalProductoUnidad"></span>
+            </p>
+
+            <!-- CONTROLES DE CANTIDAD -->
+            <div class="mb-4">
+              <label for="cantidadModal" class="form-label fw-bold">Cantidad:</label>
+              <div class="input-group input-group-lg">
+                <button class="btn btn-outline-secondary" type="button" id="btnDisminuir">-</button>
+                <input type="number" class="form-control text-center" id="cantidadModal" value="1" min="1">
+                <button class="btn btn-outline-secondary" type="button" id="btnAumentar">+</button>
+              </div>
+              <div class="form-text text-center mt-1">Mínimo 1 unidad</div>
             </div>
+
+            <!-- RESUMEN -->
+            <div class="alert alert-light border">
+              <div class="row">
+                <div class="col-6">
+                  <strong>Total:</strong>
+                </div>
+                <div class="col-6 text-end">
+                  <span id="modalTotal" class="fw-bold text-success fs-5">$0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" id="btnConfirmarCompra">
+              <i class="bi bi-check-circle me-2"></i>Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" id="btnConfirmarCompra">
-          <i class="bi bi-check-circle me-2"></i>Agregar al carrito
-        </button>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 m-auto">
+          <img src="../assets/images/logo_tierra_viva.png" alt="Logo" class="img-fluid" style="max-width: 250px" />
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Corporativo</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contáctanos</a></li>
+            <li><a href="#">Todos los Productos</a></li>
+            <li><a href="#">Blog Corporativo</a></li>
+            <li>Bogotá, Colombia</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 mb-4">
+          <h5>Enlaces de Interés</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Políticas de Privacidad</a></li>
+            <li><a href="#">Detalles de Envíos</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4 text-center">
+          <h5>Síguenos</h5>
+          <a href="#" class="no-subrayado">
+            <i class="bi bi-envelope fs-4 me-2"></i>
+          </a>
+          <a href="#" class="no-subrayado">
+            <i class="bi bi-telephone fs-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="text-center py-2" style="background: #f5c46a">
+    <small>Todos los derechos reservados 2025</small>
+  </div>
+
+  <!-- MODAL DEL CARRITO -->
+  <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header" style="background-color:#7ad03a; color:white;">
+          <h5 class="modal-title">Carrito de Compras</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div id="carritoProductos"></div>
+
+          <div class="mt-4 p-3 border rounded bg-light">
+            <div class="d-flex justify-content-between">
+              <h5>Total:</h5>
+              <h5 id="carritoTotal" class="text-success fw-bold">$0</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn btn-success px-4" id="btnComprarAhora">Comprar ahora</button>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
-
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 m-auto">
-            <img
-              src="../assets/images/logo_tierra_viva.png"
-              alt="Logo"
-              class="img-fluid"
-              style="max-width: 250px"
-            />
-          </div>
-          <div class="col-md-3 mb-4">
-            <h5>Corporativo</h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Contáctanos</a></li>
-              <li><a href="#">Todos los Productos</a></li>
-              <li><a href="#">Blog Corporativo</a></li>
-              <li>Bogotá, Colombia</li>
-            </ul>
-          </div>
-
-          <div class="col-md-3 mb-4">
-            <h5>Enlaces de Interés</h5>
-            <ul class="list-unstyled">
-              <li><a href="#">Políticas de Privacidad</a></li>
-              <li><a href="#">Detalles de Envíos</a></li>
-              <li><a href="#">Términos y Condiciones</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-4 text-center">
-            <h5>Síguenos</h5>
-            <a href="#" class="no-subrayado">
-              <i class="bi bi-envelope fs-4 me-2"></i>
-            </a>
-            <a href="#" class="no-subrayado">
-              <i class="bi bi-telephone fs-4"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <div class="text-center py-2" style="background: #f5c46a">
-      <small>Todos los derechos reservados 2025</small>
-    </div>
-
-   <!-- MODAL DEL CARRITO -->
-<div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      
-      <div class="modal-header" style="background-color:#7ad03a; color:white;">
-        <h5 class="modal-title">Carrito de Compras</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-        <div id="carritoProductos"></div>
-
-        <div class="mt-4 p-3 border rounded bg-light">
-          <div class="d-flex justify-content-between">
-            <h5>Total:</h5>
-            <h5 id="carritoTotal" class="text-success fw-bold">$0</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button class="btn btn-success px-4" id="btnComprarAhora">Comprar ahora</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 
-    <script src="./../js/productos.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="./../js/productos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
