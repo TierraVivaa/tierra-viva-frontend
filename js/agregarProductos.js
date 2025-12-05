@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 1️⃣ Tomamos todos los campos del formulario
     form.querySelectorAll("input, select, textarea").forEach((input) => {
+      if (input.name === "precio" || input.name === "cantidadDisponible") {
+        // Convertir a número inmediatamente
+        datosFormulario[input.name] = parseFloat(input.value);
+      } else if (input.type === "number") {
+        datosFormulario[input.name] = parseInt(input.value);
+      } else {
+        datosFormulario[input.name] = input.value;
+      }
+
       if (input.name === "imagen") {
         if (input.files && input.files.length > 0) {
           datosFormulario["archivoImagen"] = input.files[0];

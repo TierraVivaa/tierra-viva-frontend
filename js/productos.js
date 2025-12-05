@@ -1,39 +1,38 @@
 const productosMasVendidos = [
   {
-    id: 9001,
+    id: 1001,
     nombre: "Banano",
     categoria: "Fruta",
     precio: 3200,
     precioOriginal: 4000,
     descuento: 20,
     unidad: "kg",
+    cantidadDisponible: 150, // Agregado
     imagen: "../assets/images/productos/banano.jpg",
   },
   {
-    id: 9002,
+    id: 1002,
     nombre: "Papa Pastusa",
     categoria: "Verdura",
     precio: 1800,
     precioOriginal: 2500,
     descuento: 28,
     unidad: "kg",
+    cantidadDisponible: 200, // Agregado
     imagen: "../assets/images/productos/papa.jpg",
   },
   {
-    id: 9003,
+    id: 1003,
     nombre: "Fríjol Bola Roja",
     categoria: "Legumbre",
     precio: 4800,
     precioOriginal: 6000,
     descuento: 20,
     unidad: "libra",
+    cantidadDisponible: 80, // Agregado
     imagen: "../assets/images/productos/frijol_bola_roja.jpg",
   },
 ];
-
-
-
-
 
 // Array de productos base (simula BD)
 let productosAgro = [
@@ -45,6 +44,7 @@ let productosAgro = [
     precioOriginal: 3800,
     descuento: 16,
     unidad: "kg",
+    cantidadDisponible: 120, // Agregado
     descripcion: "Banano fresco de alta calidad.",
     imagen: "../assets/images/CatalogoProducto/banano.jpg",
     fechaVencimiento: "2025-12-20",
@@ -57,6 +57,7 @@ let productosAgro = [
     precioOriginal: 20000,
     descuento: 10,
     unidad: "libra",
+    cantidadDisponible: 50, // Agregado
     descripcion: "Café artesanal tostado y molido.",
     imagen: "../assets/images/CatalogoProducto/cafe.jpg",
     fechaVencimiento: "2026-03-01",
@@ -69,6 +70,7 @@ let productosAgro = [
     precioOriginal: 2800,
     descuento: 21,
     unidad: "kg",
+    cantidadDisponible: 180, // Agregado
     descripcion: "Cebolla cabezona fresca ideal para cocinar.",
     imagen: "../assets/images/CatalogoProducto/cebolla_cabezona.jpg",
     fechaVencimiento: "2025-12-10",
@@ -81,6 +83,7 @@ let productosAgro = [
     precioOriginal: 9500,
     descuento: 10,
     unidad: "libra",
+    cantidadDisponible: 35, // Agregado
     descripcion: "Fresas rojas dulces y frescas.",
     imagen: "../assets/images/CatalogoProducto/fresas.jpg",
     fechaVencimiento: "2025-12-08",
@@ -93,6 +96,7 @@ let productosAgro = [
     precioOriginal: 5000,
     descuento: 16,
     unidad: "libra",
+    cantidadDisponible: 90, // Agregado
     descripcion: "Fríjol bola roja seleccionado.",
     imagen: "../assets/images/CatalogoProducto/frijol.jpg",
     fechaVencimiento: "2026-05-15",
@@ -100,11 +104,12 @@ let productosAgro = [
   {
     id: 9006,
     titulo: "Papa Pastusa",
-    categoria: "Tuberculos",
+    categoria: "Tubérculos",
     precio: 1800,
     precioOriginal: 2500,
     descuento: 28,
     unidad: "kg",
+    cantidadDisponible: 250, // Agregado
     descripcion: "Papa pastusa fresca ideal para cocinar.",
     imagen: "../assets/images/CatalogoProducto/papa.jpg",
     fechaVencimiento: "2025-12-15",
@@ -117,6 +122,7 @@ let productosAgro = [
     precioOriginal: 4200,
     descuento: 17,
     unidad: "kg",
+    cantidadDisponible: 45, // Agregado
     descripcion: "Papaya dulce lista para consumir.",
     imagen: "../assets/images/CatalogoProducto/papaya.jpg",
     fechaVencimiento: "2025-12-12",
@@ -129,6 +135,7 @@ let productosAgro = [
     precioOriginal: 3400,
     descuento: 20,
     unidad: "kg",
+    cantidadDisponible: 110, // Agregado
     descripcion: "Tomate fresco ideal para ensaladas y cocina.",
     imagen: "../assets/images/CatalogoProducto/tomate.jpg",
     fechaVencimiento: "2025-12-08",
@@ -136,11 +143,12 @@ let productosAgro = [
   {
     id: 9009,
     titulo: "Yuca",
-    categoria: "Tuberculos",
+    categoria: "Tubérculos",
     precio: 1700,
     precioOriginal: 2300,
     descuento: 26,
     unidad: "kg",
+    cantidadDisponible: 95, // Agregado
     descripcion: "Yuca fresca de excelente calidad.",
     imagen: "../assets/images/CatalogoProducto/yuca.jpg",
     fechaVencimiento: "2025-12-16",
@@ -153,12 +161,16 @@ let productosAgro = [
     precioOriginal: 2100,
     descuento: 28,
     unidad: "kg",
+    cantidadDisponible: 160, // Agregado
     descripcion: "Zanahoria fresca y crujiente.",
     imagen: "../assets/images/CatalogoProducto/zanahoria.jpg",
     fechaVencimiento: "2025-12-18",
   },
 ];
 
+// Variables globales
+let productoActual = null;
+let modalCantidad = null;
 
 function renderizarProductosMasVendidos() {
   const contenedorAgro = document.getElementById("productos-agro");
@@ -172,7 +184,9 @@ function renderizarProductosMasVendidos() {
 
     col.innerHTML = `
       <div class="card product-card-agro shadow-sm mt-3">
-        <img src="${producto.imagen}" class="product-img-agro" alt="${producto.nombre}">
+        <img src="${producto.imagen}" class="product-img-agro" alt="${
+      producto.nombre
+    }">
         <div class="card-body">
           <h5 class="price-agro">$${producto.precio.toLocaleString()}</h5>
           <p class="old-price">
@@ -189,6 +203,7 @@ function renderizarProductosMasVendidos() {
               data-precio="${producto.precio}"
               data-unidad="${producto.unidad}"
               data-imagen="${producto.imagen}"
+              data-stock="${producto.cantidadDisponible || 0}"
               type="button"
             >
               <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
@@ -204,10 +219,26 @@ function renderizarProductosMasVendidos() {
 
 // 🔥 Cargar productos guardados en LocalStorage
 let productosLocal = JSON.parse(localStorage.getItem("productosJSON")) || [];
-console.log(productosLocal);
-if (productosLocal.length > 0) {
-  productosAgro = [...productosAgro, ...productosLocal];
-}
+
+productosLocal = productosLocal.map((producto) => ({
+  ...producto,
+  precio:
+    typeof producto.precio === "string"
+      ? parseFloat(producto.precio)
+      : producto.precio,
+  precioOriginal:
+    typeof producto.precioOriginal === "string"
+      ? parseFloat(producto.precioOriginal)
+      : producto.precioOriginal || parseFloat(producto.precio) * 1.2,
+  cantidadDisponible:
+    typeof producto.cantidadDisponible === "string"
+      ? parseInt(producto.cantidadDisponible)
+      : producto.cantidadDisponible,
+}));
+
+console.log("Productos convertidos:", productosLocal);
+
+
 function renderizarProductosPorCategoria() {
   const contenedorSecciones = document.getElementById("contenedor-secciones");
   if (!contenedorSecciones) return;
@@ -248,17 +279,29 @@ function renderizarProductosPorCategoria() {
 
       col.innerHTML = `
         <div class="card product-card-agro shadow-sm mt-3">
-          <img src="${producto.imagen}" class="product-img-agro" alt="${producto.titulo}">
+          <img src="${producto.imagen}" class="product-img-agro" alt="${
+        producto.titulo
+      }">
           <div class="card-body">
-            <h5 class="price-agro">$${(producto.precio || 0).toLocaleString()}</h5>
+            <h5 class="price-agro">$         ${
+              parseFloat(producto.precio || 0) % 1 === 0
+                ? parseFloat(producto.precio || 0).toLocaleString()
+                : parseFloat(producto.precio || 0).toFixed(2)
+            }</h5>
             <div class="price-block" style="min-height: 45px;">
               <p class="old-price mb-0">
                 Precio por: <strong>${producto.unidad || "N/A"}</strong>
-                $${producto.precio?.toLocaleString() || "0"}
+    $${
+      parseFloat(producto.precio || 0) % 1 === 0
+        ? parseFloat(producto.precio || 0).toLocaleString()
+        : parseFloat(producto.precio || 0).toFixed(2)
+    }
               </p>
-              ${producto.descuento && producto.descuento > 0
-                ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
-                : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`}
+              ${
+                producto.descuento && producto.descuento > 0
+                  ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
+                  : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`
+              }
             </div>
             <h5 class="card-title mb-3">${producto.titulo}</h5>
             <p>${producto.descripcion || ""}</p>
@@ -270,6 +313,7 @@ function renderizarProductosPorCategoria() {
                 data-precio="${producto.precio}"
                 data-unidad="${producto.unidad}"
                 data-imagen="${producto.imagen}"
+                data-stock="${producto.cantidadDisponible || 0}" 
                 type="button"
               >
                 <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
@@ -294,8 +338,13 @@ function configurarEventosModal() {
   if (btnAumentar) {
     btnAumentar.addEventListener("click", function () {
       const input = document.getElementById("cantidadModal");
-      input.value = parseInt(input.value) + 1;
-      actualizarTotal();
+      const stockActual = productoActual ? productoActual.stock : 0;
+
+      // Validar que no supere el stock disponible
+      if (parseInt(input.value) < stockActual) {
+        input.value = parseInt(input.value) + 1;
+        actualizarTotal();
+      }
     });
   }
 
@@ -319,7 +368,9 @@ function configurarEventosModal() {
   if (btnConfirmar) {
     btnConfirmar.addEventListener("click", function () {
       if (productoActual) {
-        const cantidad = parseInt(document.getElementById("cantidadModal").value);
+        const cantidad = parseInt(
+          document.getElementById("cantidadModal").value
+        );
         agregarAlCarrito(productoActual, cantidad);
         if (modalCantidad) modalCantidad.hide();
       }
@@ -341,7 +392,10 @@ function abrirModalProducto(producto) {
   if (unidad) unidad.textContent = producto.unidad;
 
   const inputCantidad = document.getElementById("cantidadModal");
-  if (inputCantidad) inputCantidad.value = 1;
+  if (inputCantidad) {
+    inputCantidad.value = 1;
+    inputCantidad.max = producto.stock || 0;
+  }
 
   actualizarTotal();
 
@@ -353,13 +407,66 @@ function actualizarTotal() {
 
   const inputCantidad = document.getElementById("cantidadModal");
   const totalElement = document.getElementById("modalTotal");
+  const stockActual = productoActual.stock || 0;
 
   if (!inputCantidad || !totalElement) return;
 
   const cantidad = parseInt(inputCantidad.value);
   const total = productoActual.precio * cantidad;
 
+  // Actualizar mensaje de stock
+  const stockInfo = document.getElementById("stockInfo");
+  if (!stockInfo) {
+    // Crear elemento para mostrar stock
+    const modalBody = document.querySelector(".modal-body");
+    const stockDiv = document.createElement("div");
+    stockDiv.id = "stockInfo";
+    stockDiv.className = "alert alert-info py-2 mb-3";
+    stockDiv.innerHTML = `
+      <small>
+        <i class="bi bi-info-circle me-1"></i>
+        Stock disponible: <strong>${stockActual}</strong> unidades
+      </small>
+    `;
+
+    // Insertar después del primer elemento del modal body
+    const firstChild = modalBody.firstChild;
+    if (firstChild) {
+      modalBody.insertBefore(stockDiv, firstChild.nextSibling);
+    }
+  } else {
+    stockInfo.innerHTML = `
+      <small>
+        <i class="bi bi-info-circle me-1"></i>
+        Stock disponible: <strong>${stockActual}</strong> unidades
+        ${
+          cantidad > stockActual
+            ? ' <span class="text-danger">(No hay suficiente stock)</span>'
+            : ""
+        }
+      </small>
+    `;
+  }
+
   totalElement.textContent = `$${total.toLocaleString()}`;
+
+  // Deshabilitar botón si supera el stock
+  const btnConfirmar = document.getElementById("btnConfirmarCompra");
+  if (btnConfirmar) {
+    if (cantidad > stockActual || cantidad <= 0) {
+      btnConfirmar.disabled = true;
+      btnConfirmar.innerHTML =
+        '<i class="bi bi-x-circle me-2"></i>Stock insuficiente';
+      btnConfirmar.classList.remove("btn-success");
+      btnConfirmar.classList.add("btn-secondary");
+    } else {
+      btnConfirmar.disabled = false;
+      btnConfirmar.innerHTML =
+        '<i class="bi bi-check-circle me-2"></i>Agregar al carrito';
+      btnConfirmar.classList.remove("btn-secondary");
+      btnConfirmar.classList.add("btn-success");
+    }
+  }
 }
 
 // ========== FUNCIONES DEL CARRITO ==========
@@ -380,7 +487,7 @@ function agregarAlCarrito(producto, cantidad) {
       fecha: new Date().toISOString(),
     });
   }
-
+  console.log("Data guardada", carrito);
   localStorage.setItem("carrito", JSON.stringify(carrito));
   mostrarNotificacionExito(producto, cantidad);
   actualizarContadorCarrito();
@@ -388,27 +495,24 @@ function agregarAlCarrito(producto, cantidad) {
 
 function mostrarNotificacionExito(producto, cantidad) {
   const nombre = producto.titulo || producto.nombre;
-  
-  if (typeof Swal !== "undefined") {
+
+  // Mensaje para ambos casos
+  const mensaje = `${cantidad} ${producto.unidad} de "${nombre}"\nTotal: $${(
+    producto.precio * cantidad
+  ).toLocaleString()}`;
+
+  if (window.Swal && typeof Swal.fire === "function") {
+    // SweetAlert2 disponible - Toast
     Swal.fire({
+      toast: true,
+      position: "top-end",
       icon: "success",
-      title: "¡Agregado al carrito!",
-      html: `
-        <div class="text-start">
-          <p><strong>${nombre}</strong></p>
-          <p>Cantidad: ${cantidad} ${producto.unidad}</p>
-          <p>Total: $${(producto.precio * cantidad).toLocaleString()}</p>
-        </div>
-      `,
-      showConfirmButton: true,
-      confirmButtonText: "Continuar",
-      confirmButtonColor: "#7ad03a",
+      title: "¡Producto agregado!",
+      text: mensaje,
+      showConfirmButton: false,
       timer: 3000,
+      timerProgressBar: true,
     });
-  } else {
-    alert(
-      `✅ ¡Producto agregado!\n\n${cantidad} ${producto.unidad} de "${nombre}"\nTotal: $${(producto.precio * cantidad).toLocaleString()}`
-    );
   }
 }
 
@@ -443,14 +547,7 @@ function actualizarContadorCarrito() {
 // ========== CONFIGURAR BOTONES ==========
 function configurarBotonesProductos() {
   const botones = document.querySelectorAll(".btn-abrir-modal");
-  console.log(`Encontrados ${botones.length} botones para configurar`);
 
-  botones.forEach((boton) => {
-    // Remover event listeners previos
-    boton.replaceWith(boton.cloneNode(true));
-  });
-
-  // Volver a seleccionar después del clone
   document.querySelectorAll(".btn-abrir-modal").forEach((boton) => {
     boton.addEventListener("click", function () {
       const producto = {
@@ -459,7 +556,24 @@ function configurarBotonesProductos() {
         precio: parseFloat(this.getAttribute("data-precio")),
         unidad: this.getAttribute("data-unidad"),
         imagen: this.getAttribute("data-imagen"),
+        stock: parseInt(this.getAttribute("data-stock") || 0), // Agregar stock
       };
+
+      // Validar stock antes de abrir el modal
+      if (producto.stock <= 0) {
+        if (typeof Swal !== "undefined") {
+          Swal.fire({
+            icon: "error",
+            title: "Producto agotado",
+            text: "Lo sentimos, este producto no está disponible",
+            confirmButtonText: "Entendido",
+          });
+        } else {
+          alert("❌ Este producto está agotado");
+        }
+        return;
+      }
+
       console.log("Producto seleccionado:", producto);
       abrirModalProducto(producto);
     });
@@ -470,24 +584,22 @@ function configurarBotonesProductos() {
 // UN SOLO DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
   console.log("1. DOM cargado - Iniciando...");
-  
+
   // 1. Renderizar productos
   renderizarProductosMasVendidos();
   renderizarProductosPorCategoria();
-  
+
   // 2. Inicializar modal
   const modalElement = document.getElementById("modalCantidad");
   if (modalElement) {
     modalCantidad = new bootstrap.Modal(modalElement);
     console.log("2. Modal inicializado");
   }
-  
+
   // 3. Configurar eventos
   configurarEventosModal();
   configurarBotonesProductos();
-  
+
   // 4. Contador del carrito
   actualizarContadorCarrito();
-  
-  console.log("✅ Sistema completamente inicializado");
-})
+});
