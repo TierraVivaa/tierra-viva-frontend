@@ -1,164 +1,170 @@
 form {
-    width: 370px;
-    margin: 40px auto;
-    background: #f5e9da;
-    padding: 20px;
-    border-radius: 12px;
+  width: 370px;
+  margin: 40px auto;
+  background: #f5e9da;
+  padding: 20px;
+  border-radius: 12px;
 }
 
 .form h2 {
-    text-align: center;
+  text-align: center;
 }
 
 label {
-    display: block;
-    margin-top: 12px;
+  display: block;
+  margin-top: 12px;
 }
 
 input,
 select,
 textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: none;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: none;
 }
 
-.botones {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+.btn-enviar {
+  display: flex;
+  margin: auto;
+  width: 50%;
 }
 
 button {
-    flex: 1;
-    padding: 10px;
-    background: #4CAF50;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+  flex: 1;
+  padding: 10px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 button:nth-child(2) {
-    background: #2196F3;
+  background: #2196f3;
 }
 
 button:hover {
-    opacity: 0.85;
+  opacity: 0.85;
 }
 
-form { width: auto; }
+form {
+  width: auto;
+}
 
 #Formulario {
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
-    width: 100%;
-    margin: 0 0 1.5rem 0;
-    background: #f5e9da;
-    padding: 18px;
-    border-radius: 12px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    box-sizing: border-box;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  margin: 0 0 1.5rem 0;
+  background: #f5e9da;
+  padding: 18px;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-sizing: border-box;
 }
 
-
-#Formulario label{
-    font-size: 16px;
-    font-weight: 700;
-    margin-top: 12px;
-    display: block;
+#Formulario label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 12px;
+  display: block;
 }
 
 #Formulario select,
 #Formulario textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 6px;
-    border-radius: 6px;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-sizing: border-box;
-    background: white;
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  background: white;
 }
 
 .botones {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 .botones button {
-    flex: 1;
-    padding: 10px;
-    background: #4CAF50;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+  flex: 1;
+  padding: 10px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 .botones button:nth-child(2) {
-    background: #2196F3;
+  background: #2196f3;
 }
-.botones button:hover { opacity: 0.9; }
+.botones button:hover {
+  opacity: 0.9;
+}
 
 #imagenDerecha .img-wrapper {
-    overflow: hidden;            
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
 #imagenDerecha img.main-illustration {
-    width: 100%;
-    max-width: 100%;
-    height: auto;                
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 #imagenIzquierda {
-    padding: 1rem;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
+  padding: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 main {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 
-    /* Elimina lo que está causando el scroll aislado */
-    height: auto !important;
-    min-height: auto !important;
-    overflow: visible !important;
+  /* Elimina lo que está causando el scroll aislado */
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
 
-    display: block;
-    background: 
+  display: block;
+  background: 
     /* url("../assets/images/agregarProducto/fondo1.png") no-repeat center/cover, */
-    /* url("../assets/images/agregarProducto/fondo3.png") no-repeat center/cover, */
-    url("../assets/images/agregarProducto/fondo4.png") no-repeat center/cover,
+    /* url("../assets/images/agregarProducto/fondo3.png") no-repeat center/cover, */ url("../assets/images/agregarProducto/fondo4.png")
+      no-repeat center/cover,
     /* url("../assets/images/agregarProducto/fondo5.png") no-repeat center/cover, */
-    /* linear-gradient(135deg, #f8fff8 0%, #f0f8ea 100%); */
-    /* linear-gradient(135deg, #aaffaa 0%, #ffb06b 100%); */
-    /* linear-gradient(135deg, #b2ffda 0%, #ff9d9d 100%); */
-    /* linear-gradient(135deg, #fff7a1 0%, #ff8f5e 100%); */
-    linear-gradient(135deg, #c7ff8a 0%, #ffe49c 100%);
+      /* linear-gradient(135deg, #f8fff8 0%, #f0f8ea 100%); */
+      /* linear-gradient(135deg, #aaffaa 0%, #ffb06b 100%); */
+      /* linear-gradient(135deg, #b2ffda 0%, #ff9d9d 100%); */
+      /* linear-gradient(135deg, #fff7a1 0%, #ff8f5e 100%); */
+      linear-gradient(135deg, #c7ff8a 0%, #ffe49c 100%);
 }
 
-.form-control::placeholder, #fechaVencimiento, .form-select, #imagen {
-    color: rgb(170, 170, 170) !important;
-    font-size: 14px;
+.form-control::placeholder,
+#fechaVencimiento,
+.form-select,
+#imagen {
+  color: rgb(170, 170, 170) !important;
+  font-size: 14px;
 }
 
 .detalle {
-    background-color: unset;
-    color: rgb(77, 77, 77) !important;
-    font-size: 14px;
-    opacity: 0.7 !important;
+  background-color: unset;
+  color: rgb(77, 77, 77) !important;
+  font-size: 14px;
+  opacity: 0.7 !important;
 }
