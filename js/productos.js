@@ -705,7 +705,7 @@ function eliminarDelCarrito(index) {
 
 // BOTÓN COMPRAR AHORA → Redirige a otra vista
 document.getElementById("btnComprarAhora")?.addEventListener("click", () => {
-  window.location.href = ""; 
+  window.location.href = "/html/pedido.html"; 
 });
 
 
