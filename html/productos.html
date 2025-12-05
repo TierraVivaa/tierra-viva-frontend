@@ -71,7 +71,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-item fw-semibold" href="#" title="Carrito de Compras">
-                <i class="bi bi-cart-fill fs-2" style="color: #7AD03A;"></i>
+                <i id="btnCarrito" class=" bi bi-cart-fill fs-2" style="color: #7AD03A;"></i>
               </a>
             </li>
           </ul>
@@ -250,6 +250,38 @@
     <div class="text-center py-2" style="background: #f5c46a">
       <small>Todos los derechos reservados 2025</small>
     </div>
+
+   <!-- MODAL DEL CARRITO -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header" style="background-color:#7ad03a; color:white;">
+        <h5 class="modal-title">Carrito de Compras</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div id="carritoProductos"></div>
+
+        <div class="mt-4 p-3 border rounded bg-light">
+          <div class="d-flex justify-content-between">
+            <h5>Total:</h5>
+            <h5 id="carritoTotal" class="text-success fw-bold">$0</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-success px-4" id="btnComprarAhora">Comprar ahora</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
     <script src="./../js/productos.js"></script>
     <script
