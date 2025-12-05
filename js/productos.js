@@ -211,7 +211,7 @@ let productosAgro = [
 
 // 🔥 Cargar productos guardados en LocalStorage
 let productosLocal = JSON.parse(localStorage.getItem("productosJSON")) || [];
-
+console.log(productosLocal);
 if (productosLocal.length > 0) {
   productosAgro = [...productosAgro, ...productosLocal];
 }
@@ -256,43 +256,48 @@ function renderizarProductos() {
       col.classList.add("col-md-4");
 
       col.innerHTML = `
-        <div class="card product-card-agro shadow-sm mt-3">
+    <div class="card product-card-agro shadow-sm mt-3">
 
-          <img src="${producto.imagen}" class="product-img-agro" alt="${
+      <img src="${producto.imagen}" class="product-img-agro" alt="${
         producto.titulo
       }">
 
-          <div class="card-body">
-            
-            <h5 class="price-agro">$${
-              producto.precio?.toLocaleString() || "0"
-            }</h5>
+      <div class="card-body">
+        
+        <h5 class="price-agro">$${(producto.precio || 0).toLocaleString()}</h5>
 
-            <p class="unit-agro"></strong></p>
+        <p class="unit-agro"></p>
 
-            <p class="old-price">
-              Precio por: <strong>${producto.unidad || "N/A"}</strong>
-              $${producto.precioOriginal?.toLocaleString() || "0"}
-              <span class="discount-agro">-${producto.descuento || 0}%</span>
-            </p>
+        <div class="price-block" style="min-height: 45px;">
+          <p class="old-price mb-0">
+            Precio por: <strong>${producto.unidad || "N/A"}</strong>
+            $${producto.precio?.toLocaleString() || "0"}
+          </p>
 
-            <h5 class="card-title mb-3">${producto.titulo}</h5>
-            <p>${producto.descripcion || ""}</p>
-
-            <div class="btn-wrapper d-flex justify-content-center">
-              <button
-                id="add-to-cart-${producto.id}"
-                class="btn btn-olimpia add-to-cart-btn px-4"
-                data-id="${producto.id}"
-                type="button"
-              >
-                Agregar al carrito
-              </button>
-            </div>
-
-          </div>
+          ${
+            producto.descuento && producto.descuento > 0
+              ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
+              : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`
+          }
         </div>
-      `;
+
+        <h5 class="card-title mb-3">${producto.titulo}</h5>
+        <p>${producto.descripcion || ""}</p>
+
+        <div class="btn-wrapper d-flex justify-content-center">
+          <button
+            id="add-to-cart-${producto.id}"
+            class="btn btn-olimpia add-to-cart-btn px-4"
+            data-id="${producto.id}"
+            type="button"
+          >
+            Agregar al carrito
+          </button>
+        </div>
+
+      </div>
+    </div>
+  `;
 
       contenedorCategoria.appendChild(col);
     });
