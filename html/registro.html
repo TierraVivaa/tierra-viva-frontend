@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/registro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -59,30 +59,45 @@
 
             <!-- FORMULARIO -->
             <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
-                <h2 class="fw-bold mb-4">Inicio de sesión</h2>
+                <h2 class="fw-bold mb-4">Crear Cuenta</h2>
 
-                <form id="loginForm">
+                <form id="registroForm">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombre" class="form-control" required> 
+                    </div>
+
                     <div class="mb-3">
                         <label class="form-label">Usuario</label>
-                        <input type="text" id="usuario" class="form-control" placeholder="Ingrese su usuario"> 
+                        <input type="text" id="usuarioReg" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Contaseña</label>
-                        <input type="password" id="password" class="form-control" placeholder="Ingrese su contraseña">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="emailReg" class="form-control" required>
                     </div>
 
-                    <button type="submit" class="btn btn-dark w-100 mt-3">Ingresar</button>
+                    <div class="mb-3">
+                        <label class="form-label">Número de celular (opcional)</label>
+                        <input type="tel" id="numeroReg" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" id="passwordReg" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100 mt-3">Registrarme</button>
 
                     <div class="mt-3 text-center">
-                        <small>¿Olvidó su contraseña? <a href="#" class="link-dark fw-semibold">Click aquí</a></small><br>
-                        <small>¿No tiene cuenta? <a href="/html/registro.html" class="link-dark fw-semibold">Regístrese</a></small>
+                        <small>¿tiene cuenta? <a href="/html/iniciarSesion.html" class="link-dark fw-semibold">Login</a></small>
                     </div>
                 </form>
             </div>
 
             <div class="col-md-6 p-0 d-none d-md-block">
-                <div class="login-imagen"></div>
+                <div class="registro-imagen"></div>
             </div>
         </div>
     </main>
@@ -135,7 +150,7 @@
         <small>Todos los derechos reservados 2025</small>
     </div>
 
-    <script src="../js/iniciarSesion.js"></script>
+    <script src="../js/registro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

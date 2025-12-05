@@ -6,12 +6,17 @@
     <title>Productos</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/productos.css" />
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
@@ -19,7 +24,6 @@
   </head>
 
   <body>
-    <!-- HEADER -->
     <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -31,7 +35,6 @@
           />
         </a>
 
-        <!-- BOTÓN RESPONSIVE -->
         <button
           class="navbar-toggler"
           type="button"
@@ -41,7 +44,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- MENÚ -->
         <div
           class="collapse navbar-collapse justify-content-end"
           id="navbarNav"
@@ -57,7 +59,6 @@
                 >Productos</a
               >
             </li>
-
             <li class="nav-item">
               <a class="nav-link fw-semibold" href="./historiasDeCampo.html"
                 >Historias de Campo</a
@@ -68,11 +69,15 @@
                 >Contáctenos</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-item fw-semibold" href="#" title="Carrito de Compras">
+                <i class="bi bi-cart-fill fs-2" style="color: #7AD03A;"></i>
+              </a>
+            </li>
           </ul>
 
-          <!-- BOTÓN LOGIN -->
           <a
-            href="#"
+            href="../html/iniciarSesion.html"
             class="btn px-4 py-2"
             style="
               background-color: #000000;
@@ -87,57 +92,123 @@
     </nav>
 
     <main>
-      
       <!-- Nuestros Productos -->
       <div>
-        <div style="background:#7AD03A; padding:15px; border-radius:8px; text-align:center;">
+        <div class="wrapped-title">
+          <h2 style="color: white; font-weight: 800; margin: 0">
+            Nuestros Productos
+          </h2>
+        </div>
+        <section class="cards-container">
+          <a href="#cafe" class="card-img">
+            <img src="../assets/images/catologo/S1.png" alt="Café" />
+          </a>
 
-              <h2 style="color:white; font-weight:800; margin:0;">Nuestros Productos</h2>
+          <a href="#granos" class="card-img">
+            <img src="../assets/images/catologo/S2.png" alt="Granos" />
+          </a>
 
-            </div>
-        
- <section class="cards-container">
-        <a href="#cafe" class="card-img">
-          <img src="../assets/images/catologo/S1.png" alt="Café" />
-        </a>
+          <a href="#frutas" class="card-img">
+            <img src="../assets/images/catologo/S3.png" alt="Frutas" />
+          </a>
 
-        <a href="#granos" class="card-img">
-          <img src="../assets/images/catologo/S2.png" alt="Granos" />
-        </a>
+          <a href="#verduras" class="card-img">
+            <img src="../assets/images/catologo/S4.png" alt="Verduras" />
+          </a>
 
-        <a href="#frutas" class="card-img">
-          <img src="../assets/images/catologo/S3.png" alt="Frutas" />
-        </a>
+          <a href="#cereales" class="card-img">
+            <img src="../assets/images/catologo/S5.png" alt="Cereales" />
+          </a>
 
-        <a href="#verduras" class="card-img">
-          <img src="../assets/images/catologo/S4.png" alt="Verduras" />
-        </a>
+          <a href="#tuberculos" class="card-img">
+            <img src="../assets/images/catologo/S6.png" alt="Tubérculos" />
+          </a>
+        </section>
+      </div>
 
-        <a href="#cereales" class="card-img">
-          <img src="../assets/images/catologo/S5.png" alt="Cereales" />
-        </a>
+      <section>
+        <div class="wrapped-title">
+          <h2 style="color: white; font-weight: 800; margin: 0">
+            Productos mas vendidos
+          </h2>
+        </div>
 
-        <a href="#tuberculos" class="card-img">
-          <img src="../assets/images/catologo/S6.png" alt="Tubérculos" />
-        </a>
+        <div class="container section-store">
+          <div class="row" id="productos-agro"></div>
+        </div>
       </section>
-      </div>
-     
 
-      <div>
-        <!-- Productos mas vendidos -->
-      </div>
+      <section>
+        <div class="wrapped-title">
+          <h2 style="color: white; font-weight: 800; margin: 0">Catalogo</h2>
+        </div>
+
+        <div class="container section-store">
+          <div class="row" id="productos-agro"></div>
+        </div>
+      </section>
 
       <div>
         <!-- Catálogo de productos -->
+        <div class="container section-store" id="contenedor-secciones"></div>
       </div>
+<!-- Agrega esto JUSTO ANTES de cerrar el </body> -->
+<div class="modal fade" id="modalCantidad" tabindex="-1" aria-labelledby="modalCantidadLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #7ad03a; color: white;">
+        <h5 class="modal-title" id="modalCantidadLabel">Seleccionar cantidad</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center mb-3">
+          <img id="modalProductoImagen" src="" alt="Producto" class="img-fluid rounded" style="max-height: 120px;">
+        </div>
+        
+        <h6 id="modalProductoNombre" class="text-center mb-2"></h6>
+        <p class="text-center text-muted mb-3">
+          <span id="modalProductoPrecio" class="text-success fw-bold"></span> 
+          / <span id="modalProductoUnidad"></span>
+        </p>
+        
+        <!-- CONTROLES DE CANTIDAD -->
+        <div class="mb-4">
+          <label for="cantidadModal" class="form-label fw-bold">Cantidad:</label>
+          <div class="input-group input-group-lg">
+            <button class="btn btn-outline-secondary" type="button" id="btnDisminuir">-</button>
+            <input type="number" class="form-control text-center" id="cantidadModal" value="1" min="1">
+            <button class="btn btn-outline-secondary" type="button" id="btnAumentar">+</button>
+          </div>
+          <div class="form-text text-center mt-1">Mínimo 1 unidad</div>
+        </div>
+        
+        <!-- RESUMEN -->
+        <div class="alert alert-light border">
+          <div class="row">
+            <div class="col-6">
+              <strong>Total:</strong>
+            </div>
+            <div class="col-6 text-end">
+              <span id="modalTotal" class="fw-bold text-success fs-5">$0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" id="btnConfirmarCompra">
+          <i class="bi bi-check-circle me-2"></i>Agregar al carrito
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="row">
-          <!-- Logo -->
           <div class="col-md-3 m-auto">
             <img
               src="../assets/images/logo_tierra_viva.png"
@@ -146,7 +217,6 @@
               style="max-width: 250px"
             />
           </div>
-          <!--Mapa del sitio-->
           <div class="col-md-3 mb-4">
             <h5>Corporativo</h5>
             <ul class="list-unstyled">
@@ -158,7 +228,6 @@
             </ul>
           </div>
 
-          <!-- Nuestos Servicios -->
           <div class="col-md-3 mb-4">
             <h5>Enlaces de Interés</h5>
             <ul class="list-unstyled">
@@ -167,7 +236,6 @@
               <li><a href="#">Términos y Condiciones</a></li>
             </ul>
           </div>
-          <!-- Íconos -->
           <div class="col-md-3 mb-4 text-center">
             <h5>Síguenos</h5>
             <a href="#" class="no-subrayado">
@@ -180,7 +248,6 @@
         </div>
       </div>
     </footer>
-    <!-- Derechos reservados-->
     <div class="text-center py-2" style="background: #f5c46a">
       <small>Todos los derechos reservados 2025</small>
     </div>
