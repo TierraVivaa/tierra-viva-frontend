@@ -635,3 +635,77 @@ document.addEventListener("DOMContentLoaded", function () {
   // 4. Contador del carrito
   actualizarContadorCarrito();
 });
+
+// =====================
+// MODAL DEL CARRITO
+// =====================
+
+// Abrir modal al hacer click en el icono del carrito
+document.getElementById("btnCarrito")?.addEventListener("click", () => {
+  renderizarCarrito();
+  const modal = new bootstrap.Modal(document.getElementById("modalCarrito"));
+  modal.show();
+});
+
+// Renderizar items dentro del modal
+function renderizarCarrito() {
+  const contenedor = document.getElementById("carritoProductos");
+  const totalCarrito = document.getElementById("carritoTotal");
+
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  contenedor.innerHTML = "";
+  let total = 0;
+
+  if (carrito.length === 0) {
+    contenedor.innerHTML = `
+      <div class="text-center text-muted py-4">
+        <i class="bi bi-cart-x fs-1"></i>
+        <p>El carrito está vacío</p>
+      </div>
+    `;
+    totalCarrito.textContent = "$0";
+    return;
+  }
+
+  carrito.forEach((item, index) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+
+    contenedor.innerHTML += `
+      <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+        
+        <div class="d-flex gap-3">
+          <img src="${item.imagen}" width="70" class="rounded border">
+          <div>
+            <h6 class="fw-bold mb-1">${item.nombre}</h6>
+            <small class="text-muted">${item.cantidad} × $${item.precio.toLocaleString()}</small>
+            <div class="fw-semibold text-success">$${subtotal.toLocaleString()}</div>
+          </div>
+        </div>
+
+        <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${index})">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    `;
+  });
+
+  totalCarrito.textContent = `$${total.toLocaleString()}`;
+}
+
+// Eliminar producto
+function eliminarDelCarrito(index) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  carrito.splice(index, 1);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  renderizarCarrito();
+  actualizarContadorCarrito();
+}
+
+// BOTÓN COMPRAR AHORA → Redirige a otra vista
+document.getElementById("btnComprarAhora")?.addEventListener("click", () => {
+  window.location.href = ""; 
+});
+
+
