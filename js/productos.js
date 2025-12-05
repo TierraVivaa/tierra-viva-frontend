@@ -217,7 +217,7 @@ function renderizarProductosMasVendidos() {
   });
 }
 
-// 🔥 Cargar productos guardados en LocalStorage
+//  Cargar productos guardados en LocalStorage
 let productosLocal = JSON.parse(localStorage.getItem("productosJSON")) || [];
 
 productosLocal = productosLocal.map((producto) => ({
@@ -237,7 +237,6 @@ productosLocal = productosLocal.map((producto) => ({
 }));
 
 console.log("Productos convertidos:", productosLocal);
-
 
 function renderizarProductosPorCategoria() {
   const contenedorSecciones = document.getElementById("contenedor-secciones");
@@ -510,39 +509,72 @@ function mostrarNotificacionExito(producto, cantidad) {
       title: "¡Producto agregado!",
       text: mensaje,
       showConfirmButton: false,
-      timer: 3000,
+      timer: 1000,
       timerProgressBar: true,
     });
   }
 }
-
 function actualizarContadorCarrito() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
 
   let badge = document.getElementById("badgeCarrito");
 
-  if (!badge) {
-    const nav = document.querySelector(".navbar-nav");
-    if (nav) {
-      const carritoItem = document.createElement("li");
-      carritoItem.className = "nav-item";
-      carritoItem.innerHTML = `
-        <a class="nav-link position-relative" href="#">
-          <i class="bi bi-cart3"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badgeCarrito">
-            ${totalItems}
-          </span>
-        </a>
-      `;
-      nav.appendChild(carritoItem);
+  if (totalItems > 0) {
+    if (!badge) {
+      // Si no existe el badge, lo creamos
+      const carritoLink = document.getElementById("carritoLink");
+      if (carritoLink) {
+        // Creamos el badge y lo agregamos al enlace del carrito
+        badge = document.createElement("span");
+        badge.id = "badgeCarrito";
+        badge.className =
+          "position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger";
+        badge.textContent = totalItems;
+        badge.style.fontSize = "0.7rem";
+        badge.style.minWidth = "20px";
+        badge.style.height = "20px";
+        badge.style.display = "flex";
+        badge.style.alignItems = "center";
+        badge.style.justifyContent = "center";
+
+        carritoLink.appendChild(badge);
+      }
+    } else {
+      // Si ya existe, actualizamos el contenido
+      badge.textContent = totalItems;
+      badge.style.display = "flex";
+      badge.classList.remove("bg-secondary");
+      badge.classList.add("bg-danger");
     }
   } else {
-    badge.textContent = totalItems;
-    badge.classList.remove("bg-secondary");
-    badge.classList.add("bg-danger");
+    // Si no hay items, ocultamos el badge
+    if (badge) {
+      badge.style.display = "none";
+    }
   }
 }
+
+// Opcional: función para redirigir al carrito cuando se haga clic
+function configurarCarrito() {
+  const carritoLink = document.getElementById("carritoLink");
+  if (carritoLink) {
+    carritoLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      // Aquí puedes agregar la redirección a la página del carrito
+      // window.location.href = "./carrito.html";
+    });
+  }
+
+  // Actualizar el contador al cargar la página
+  actualizarContadorCarrito();
+}
+
+// Llama a configurarCarrito cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", function () {
+  configurarCarrito();
+});
+
 
 // ========== CONFIGURAR BOTONES ==========
 function configurarBotonesProductos() {
