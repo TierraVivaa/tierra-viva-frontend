@@ -8,8 +8,9 @@
 }
 
 .card-img {
+  padding: 1rem;
   border-radius: 16px;
-  height: 200px;
+  height: 250px;
   overflow: hidden;
   position: relative;
   text-decoration: none;
