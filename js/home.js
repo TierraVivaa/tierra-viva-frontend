@@ -57,16 +57,7 @@ productosAgro.forEach((producto) => {
         </p>
 
         <h5 class="card-title mb-3">${producto.nombre}</h5>
-      <div class="btn-wrapper d-flex justify-content-center">
-        <button
-          id="add-to-cart-${producto.id}"
-          class="btn btn-olimpia add-to-cart-btn px-4"
-          data-id="${producto.id}"
-          type="button"
-        >
-          Agregar al carrito
-        </button>
-      </div>
+\
 
       </div>
     </div>
