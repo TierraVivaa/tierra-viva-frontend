@@ -217,7 +217,7 @@ function renderizarProductosMasVendidos() {
   });
 }
 
-// 🔥 Cargar productos guardados en LocalStorage
+//  Cargar productos guardados en LocalStorage
 let productosLocal = JSON.parse(localStorage.getItem("productosJSON")) || [];
 
 productosLocal = productosLocal.map((producto) => ({
@@ -509,7 +509,7 @@ function mostrarNotificacionExito(producto, cantidad) {
       title: "¡Producto agregado!",
       text: mensaje,
       showConfirmButton: false,
-      timer: 3000,
+      timer: 1000,
       timerProgressBar: true,
     });
   }
