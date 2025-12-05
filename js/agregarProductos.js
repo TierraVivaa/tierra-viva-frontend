@@ -313,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
       form.reset();
-      // Limpiar clases de validación
       limpiarErrores();
     }, 1000);
   }
