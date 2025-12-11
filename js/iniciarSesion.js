@@ -1,12 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("loginForm");
+    localStorage.setItem("loginData", {}); // limpiamos el localstorage
 
     form.addEventListener("submit", (e) => {
         e.preventDefault(); // Evita que recargue la pagina
 
         const usuario = document.getElementById("usuario").value;
         const password = document.getElementById("password").value;
+
+        if (usuario === "" || password === "") {
+            // SweetAlert2 de Advertencia para campos vacíos
+            Swal.fire({
+                title: "Campos Requeridos",
+                text: "Por favor, ingrese su usuario y contraseña.",
+                icon: "warning",
+                confirmButtonText: "Aceptar"
+            });
+            return;
+        }
+
+        const loginData = {
+            usuario: usuario,
+            password: password
+        };
+        
+        localStorage.setItem("loginData", JSON.stringify(loginData));
 
         if (usuario === "Admin1234" && password === "admin") {
             // modal de SweetAlert2 de Éxito
@@ -22,22 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-        } else if (usuario === "" || password === "") {
-             // SweetAlert2 de Advertencia para campos vacíos
-            Swal.fire({
-                title: "Campos Requeridos",
-                text: "Por favor, ingrese su usuario y contraseña.",
-                icon: "warning",
-                confirmButtonText: "Aceptar"
-            });
-        
         } else {
-            const loginData = {
-                usuario: usuario,
-                password: password
-            };
-
-            localStorage.setItem("loginData", JSON.stringify(loginData));
 
             // Reemplazo de alert("Usuario Ingresado") con SweetAlert2 de Información
             Swal.fire({
@@ -51,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.replace('../index.html');
             });
 
-            form.reset();
         }
+        form.reset();
     });
 });
