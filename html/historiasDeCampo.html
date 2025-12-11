@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TierraViva</title>
   <link rel="stylesheet" href="./../css/index.css" />
+  <link rel="stylesheet" href="../css/productos.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
@@ -39,12 +40,18 @@
           <li class="nav-item">
             <a class="nav-link fw-semibold" href="./contactenos.html">Contáctenos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-item fw-semibold" href="#" title="Carrito de Compras">
-              <i class="bi bi-cart-fill fs-2" style="color: #7AD03A;"></i>
+           <li class="nav-item position-relative">
+      <!-- Agrega position-relative al li padre -->
+            <a class="nav-link fw-semibold" href="#" title="Carrito de Compras" id="carritoLink">
+            <i id="btnCarrito" class="bi bi-cart-fill fs-2" style="color: #7AD03A;" id="carritoIcon"></i>
+        <!-- Agrega el badge dentro del mismo enlace -->
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+              id="badgeCarrito" style="display: none;">
+          0
+            </span>
             </a>
-          </li>
-        </ul>
+            </li>
+            </ul>
 
         <!-- BOTÓN LOGIN -->
         <a href="/html/iniciarSesion.html" class="btn px-4 py-2" style="
@@ -307,6 +314,37 @@
     <small>Todos los derechos reservados 2025</small>
   </div>
 
+   <!-- MODAL DEL CARRITO -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header" style="background-color:#7ad03a; color:white;">
+        <h5 class="modal-title">Carrito de Compras</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div id="carritoProductos"></div>
+
+        <div class="mt-4 p-3 border rounded bg-light">
+          <div class="d-flex justify-content-between">
+            <h5>Total:</h5>
+            <h5 id="carritoTotal" class="text-success fw-bold">$0</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-success px-4" id="btnComprarAhora">Comprar ahora</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <script src="./../js/productos.js"></script>
   <script src="./../js/index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
