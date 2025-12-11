@@ -1,4 +1,4 @@
-const productosAgro = [
+const productosAgro1 = [
   {
     id: 9001,
     nombre: "Banano",
@@ -33,7 +33,7 @@ const productosAgro = [
 
 const contenedorAgro = document.getElementById("productos-agro");
 
-productosAgro.forEach((producto) => {
+productosAgro1.forEach((producto) => {
   const col = document.createElement("div");
   col.classList.add("col-md-4");
 
@@ -128,3 +128,4 @@ document
         });
       });
   });
+
