@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
 
         if (usuario === "Admin1234" && password === "admin") {
-            // Reemplazo de alert("Bienvenido Admin") con SweetAlert2 de Éxito
+            // modal de SweetAlert2 de Éxito
             Swal.fire({
                 title: "¡Bienvenido Admin!",
                 text: "Acceso concedido al panel de administración.",
