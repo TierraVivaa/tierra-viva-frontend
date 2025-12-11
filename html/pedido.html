@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tierra Viva - Carrito</title>
 
-    
     <link rel="stylesheet" href="/css/pedidos.css">
 </head>
 
@@ -17,52 +16,29 @@
 
 <div class="container">
 
-    
+    <!-- CARRITO -->
     <div class="carrito">
-
         <h2>Carrito</h2>
 
-       
-        <div class="producto">
-            <img src="../assets/images/productos/banano.jpg" alt="Banano Tierra Viva">
-
-            <div>
-                <h3>Banano</h3>
-                <p>Unidad de venta: 1 kg</p>
-                <p>Categoria: Frutas</p>
-                <p class="precio">$3.200</p>
-            </div>
-        </div>
-
-        
-        <div class="producto">
-            <img src="../assets/images/productos/papa.jpg" alt="Papa Pastusa Tierra Viva">
-
-            <div>
-                <h3>Papa Pastusa</h3>
-                <p>Unidad de venta: 1 kg</p>
-                <p>Categoria: Tubérculos</p>
-                <p class="precio">$1.800</p>
-            </div>
-        </div>
-
+        <!-- Aquí se insertarán los productos dinámicamente -->
+        <div id="listaPedidos"></div>
     </div>
 
-  
+    <!-- RESUMEN -->
     <div class="resumen">
         <h2>Resumen del pedido</h2>
 
         <p>
             <span>Subtotal:</span>
-            <strong>$5.000</strong>
+            <strong id="subtotal">$0</strong>
         </p>
 
         <p>
             <span>Total IVA incluido:</span>
-            <strong>$5.000</strong>
+            <strong id="total">$0</strong>
         </p>
 
-        <button class="btn-pagar">PAGAR</button>
+        <button class="btn-pagar" id="btnConfirmarPedido">PAGAR</button>
 
         <div class="beneficios">
             <div class="beneficio-item">
@@ -79,5 +55,6 @@
 
 </div>
 
+<script src="/js/pedido.js"></script>
 </body>
 </html>

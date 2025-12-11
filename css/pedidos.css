@@ -138,9 +138,7 @@ header h1 {
     font-weight: bold;
 }
 
-/* =========================================
-   RESPONSIVE: TABLET y CELULAR
-========================================= */
+
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
