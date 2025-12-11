@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/productos.css" />
 
     <link
       rel="stylesheet"
@@ -55,7 +56,9 @@
               <a class="nav-link fw-semibold" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-semibold" href="./html/productos.html">Productos</a>
+              <a class="nav-link fw-semibold" href="./html/productos.html"
+                >Productos</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -70,9 +73,28 @@
               >
             </li>
 
-            <li class="nav-item">
-              <a class="nav-item fw-semibold" href="#" title="Carrito de Compras">
-                <i class="bi bi-cart-fill fs-2" style="color: #7AD03A;"></i>
+            <li class="nav-item position-relative">
+              <!-- Agrega position-relative al li padre -->
+              <a
+                class="nav-link fw-semibold"
+                href="#"
+                title="Carrito de Compras"
+                id="carritoLink"
+              >
+                <i
+                  id="btnCarrito"
+                  class="bi bi-cart-fill fs-2"
+                  style="color: #7ad03a"
+                  id="carritoIcon"
+                ></i>
+                <!-- Agrega el badge dentro del mismo enlace -->
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  id="badgeCarrito"
+                  style="display: none"
+                >
+                  0
+                </span>
               </a>
             </li>
           </ul>
@@ -95,39 +117,107 @@
 
     <main>
       <div class="container mt-5">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="3300">
               <video class="video-responsive" autoplay muted playsinline>
-                <source src="https://video.wixstatic.com/video/d7cea2_becf587219ee493280ff5a2d26541930/1080p/mp4/file.mp4" type="video/mp4">
+                <source
+                  src="https://video.wixstatic.com/video/d7cea2_becf587219ee493280ff5a2d26541930/1080p/mp4/file.mp4"
+                  type="video/mp4"
+                />
               </video>
-    
+
               <div class="carousel-caption d-none d-md-block">
-                <h5 class="carouselH5">
-                  Tierra Viva
-                </h5>
-                <h5 class="carouselH5">
-                  Lo mejor de lo mejor
-                </h5>
-                <button type="button" class="btn btn-lg" style="background:#7AD03A; padding:15px; border-radius:8px; text-align:center; color:white; font-weight:800; margin-bottom: 0.5rem;">
+                <h5 class="carouselH5">Tierra Viva</h5>
+                <h5 class="carouselH5">Lo mejor de lo mejor</h5>
+                <button
+                  type="button"
+                  class="btn btn-lg"
+                  style="
+                    background: #7ad03a;
+                    padding: 15px;
+                    border-radius: 8px;
+                    text-align: center;
+                    color: white;
+                    font-weight: 800;
+                    margin-bottom: 0.5rem;
+                  "
+                >
                   ¡COMPRA YA!
                 </button>
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="3300">
-              <img src="./assets/images/home/increiblesDescuentos.jpg" class="d-block w-100" alt="carousel image" style="border-radius: 0.5rem;">
+              <img
+                src="./assets/images/home/posteAcero.jpg"
+                class="d-block w-100"
+                alt="carousel image"
+                style="border-radius: 0.5rem"
+              />
+
+              <div class="carousel-caption d-none d-md-block">
+                <button
+                  type="button"
+                  class="btn btn-lg"
+                  style="
+                    background: #7ad03a;
+                    padding: 15px;
+                    border-radius: 8px;
+                    text-align: center;
+                    color: white;
+                    font-weight: 800;
+                  "
+                >
+                  ¡APROVECHA!
+                </button>
+              </div>
             </div>
             <div class="carousel-item" data-bs-interval="3300">
-              <img src="./assets/images/home/aUnSoloClick.jpg" class="d-block w-100" alt="increibles descuentos" style="border-radius: 0.5rem;">
+              <img
+                src="./assets/images/home/vaca.jpg"
+                class="d-block w-100"
+                alt="carousel image"
+                style="border-radius: 0.5rem"
+              />
+
+              <div class="carousel-caption d-none d-md-block">
+                <button
+                  type="button"
+                  class="btn btn-lg"
+                  style="
+                    background: #df4344;
+                    padding: 15px;
+                    border-radius: 8px;
+                    text-align: center;
+                    color: white;
+                    font-weight: 800;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  ¡COMPRAR!
+                </button>
+              </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -144,7 +234,7 @@
             margin-top: 2rem;
           "
         >
-          <h2 style="color: white; font-weight: 800; margin: 0;">
+          <h2 style="color: white; font-weight: 800; margin: 0">
             Nuestros servicios
           </h2>
         </div>
@@ -214,35 +304,72 @@
             margin-top: 2rem;
           "
         >
-          <h2 style="color: white; font-weight: 800; margin: 0;">
+          <h2 style="color: white; font-weight: 800; margin: 0">
             Marcas que vendemos
           </h2>
         </div>
         <div id="carouselMarcas" class="carousel slide" data-bs-ride="carousel">
-
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <div class="d-flex justify-content-center gap-4">
-                        <img src="/assets/images/marcas/marca1.jpg" class="logo-item" alt="Marca 1">
-                        <img src="/assets/images/marcas/marca2.jpg" class="logo-item" alt="Marca 2">
-                        <img src="/assets/images/marcas/marca3.jpg" class="logo-item" alt="Marca 3">
-                        <img src="/assets/images/marcas/marca4.png" class="logo-item" alt="Marca 4">
-                        <img src="/assets/images/marcas/marca5.jpg" class="logo-item" alt="Marca 5">
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="d-flex justify-content-center gap-4">
-                        <img src="/assets/images/marcas/marca6.jpg" class="logo-item" alt="Marca 6">
-                        <img src="/assets/images/marcas/marca7.jpg" class="logo-item" alt="Marca 7">
-                        <img src="/assets/images/marcas/marca8.jpg" class="logo-item" alt="Marca 8">
-                        <img src="/assets/images/marcas/marca9.png" class="logo-item" alt="Marca 9">
-                        <img src="/assets/images/marcas/marca10.jpg" class="logo-item" alt="Marca 10">
-                    </div>
-                </div>
-
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="d-flex justify-content-center gap-4">
+                <img
+                  src="/assets/images/marcas/marca1.jpg"
+                  class="logo-item"
+                  alt="Marca 1"
+                />
+                <img
+                  src="/assets/images/marcas/marca2.jpg"
+                  class="logo-item"
+                  alt="Marca 2"
+                />
+                <img
+                  src="/assets/images/marcas/marca3.jpg"
+                  class="logo-item"
+                  alt="Marca 3"
+                />
+                <img
+                  src="/assets/images/marcas/marca4.png"
+                  class="logo-item"
+                  alt="Marca 4"
+                />
+                <img
+                  src="/assets/images/marcas/marca5.jpg"
+                  class="logo-item"
+                  alt="Marca 5"
+                />
+              </div>
             </div>
+
+            <div class="carousel-item">
+              <div class="d-flex justify-content-center gap-4">
+                <img
+                  src="/assets/images/marcas/marca6.jpg"
+                  class="logo-item"
+                  alt="Marca 6"
+                />
+                <img
+                  src="/assets/images/marcas/marca7.jpg"
+                  class="logo-item"
+                  alt="Marca 7"
+                />
+                <img
+                  src="/assets/images/marcas/marca8.jpg"
+                  class="logo-item"
+                  alt="Marca 8"
+                />
+                <img
+                  src="/assets/images/marcas/marca9.png"
+                  class="logo-item"
+                  alt="Marca 9"
+                />
+                <img
+                  src="/assets/images/marcas/marca10.jpg"
+                  class="logo-item"
+                  alt="Marca 10"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -337,7 +464,6 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
       <!-- tu archivo JS -->
-      <script src="./js/home.js"></script>
     </main>
 
     <!-- FOOTER -->
@@ -368,7 +494,8 @@
 
           <!-- Nuestos Servicios -->
           <div class="col-md-3 mb-4">
-            <h5>Enlaces de Interés</h5><ul class="list-unstyled">
+            <h5>Enlaces de Interés</h5>
+            <ul class="list-unstyled">
               <li><a href="#">Políticas de Privacidad</a></li>
               <li><a href="#">Detalles de Envíos</a></li>
               <li><a href="#">Términos y Condiciones</a></li>
@@ -392,7 +519,52 @@
       <small>Todos los derechos reservados 2025</small>
     </div>
 
-    <script src="./js/home.js"></script>
+    <!-- MODAL DEL CARRITO -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color: #7ad03a; color: white"
+          >
+            <h5 class="modal-title">Carrito de Compras</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div id="carritoProductos"></div>
+
+            <div class="mt-4 p-3 border rounded bg-light">
+              <div class="d-flex justify-content-between">
+                <h5>Total:</h5>
+                <h5 id="carritoTotal" class="text-success fw-bold">$0</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+            <button class="btn btn-success px-4" id="btnComprarAhora">
+              Comprar ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Scripts en el orden CORRECTO -->
+
+    <script src="./js/productos.js"></script>
+      <script src="./js/home.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
