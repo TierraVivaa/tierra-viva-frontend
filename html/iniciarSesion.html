@@ -4,28 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
-    <!-- HEADER -->
     <nav class="navbar navbar-expand-lg px-2" style="background-color: #f5e9da">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./../assets/images/logo_tierra_viva.png" alt="Logoss" width="60" class="me-3" />
             </a>
 
-            <!-- BOTÓN RESPONSIVE -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- MENÚ -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav mb-2 me-4 mb-lg-0 d-lg-flex align-items-lg-center gap-lg-3">
                     <li class="nav-item">
@@ -43,7 +41,6 @@
                     </li>
                 </ul>
 
-                <!-- BOTÓN LOGIN -->
                 <a href="/html/iniciarSesion.html" class="btn px-4 py-2" style="
                 background-color: #000000;
                 color: white;
@@ -57,14 +54,13 @@
     <main class="login-container d-flex align-item-center justify-content-center">
         <div class="login-card row shadow-lg">
 
-            <!-- FORMULARIO -->
             <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
                 <h2 class="fw-bold mb-4">Inicio de sesión</h2>
 
                 <form id="loginForm">
                     <div class="mb-3">
                         <label class="form-label">Usuario</label>
-                        <input type="text" id="usuario" class="form-control" placeholder="Ingrese su usuario"> 
+                        <input type="text" id="usuario" class="form-control" placeholder="Ingrese su usuario">
                     </div>
 
                     <div class="mb-3">
@@ -87,16 +83,13 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="row">
-                <!-- Logo -->
                 <div class="col-md-3 m-auto">
                     <img src="../assets/images/logo_tierra_viva.png" alt="Logo" class="img-fluid"
                         style="max-width: 250px" />
                 </div>
-                <!--Mapa del sitio-->
                 <div class="col-md-3 mb-4">
                     <h5>Corporativo</h5>
                     <ul class="list-unstyled">
@@ -108,7 +101,6 @@
                     </ul>
                 </div>
 
-                <!-- Nuestos Servicios -->
                 <div class="col-md-3 mb-4">
                     <h5>Enlaces de Interés</h5>
                     <ul class="list-unstyled">
@@ -117,7 +109,6 @@
                         <li><a href="#">Términos y Condiciones</a></li>
                     </ul>
                 </div>
-                <!-- Íconos -->
                 <div class="col-md-3 mb-4 text-center">
                     <h5>Síguenos</h5>
                     <a href="#" class="no-subrayado">
@@ -130,12 +121,14 @@
             </div>
         </div>
     </footer>
-    <!-- Derechos reservados-->
     <div class="text-center py-2" style="background: #f5c46a">
         <small>Todos los derechos reservados 2025</small>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="../js/iniciarSesion.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
