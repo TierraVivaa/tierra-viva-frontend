@@ -16,4 +16,15 @@ Generation Colombia Cohorte 10
 
 ### Entregas
 Entrega tarea 4 ✅
+
 Entrega tarea 5 ✅
+
+Entrega tarea 6 ✅
+
+Entrega tarea 7 ✅
+
+Entrega tarea 8 ✅
+
+Entrega tarea 9 ✅
+
+Entrega tarea 10 ✅
