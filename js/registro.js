@@ -91,3 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
             .forEach(el => el.classList.remove("is-valid"));
     });
 });
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("passwordReg");
+const icon = togglePassword.querySelector("i");
+
+togglePassword.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+    }
+});
