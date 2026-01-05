@@ -88,9 +88,21 @@
                     
                     <div class="mb-3">
                         <label class="form-label">Contraseña</label>
-                        <input type="password" id="passwordReg" class="form-control" required minlength="6">
-                        <div class="invalid-feedback">Ingresa una contraseña (mínimo 6 caracteres)</div>
+                        <div class="input-group">
+                            <input type="password" id="passwordReg" class="form-control" required minlength="8">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                            <div class="invalid-feedback">
+                                Ingresa una contraseña (mínimo 8 caracteres)
+                            </div>
+                        </div>
                     </div>
+                    <h2 class="fw-bold mb-4">Crear Cuenta</h2>
+                    <div id="alertRegistro" class="alert alert-success d-none" role="alert">
+                        Cuenta creada correctamente. Redirigiendo al inicio de sesión...
+                    </div>
+
 
                     <button type="submit" class="btn btn-dark w-100 mt-3">Registrarme</button>
 
