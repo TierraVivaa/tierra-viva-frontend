@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const subtotalSpan = document.getElementById("subtotal");
     const totalSpan = document.getElementById("total");
 
+    //  Boton regresar a productos
+    btnRegresar.addEventListener("click", () => {
+        window.location.href = "/html/productos.html";
+    });
+
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     if (carrito.length === 0) {
