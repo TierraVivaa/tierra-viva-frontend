@@ -63,3 +63,11 @@ height: 500px !important;
 #cantidadModal:focus:invalid {
   box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
 }
+
+
+/* Icono del carrito */
+.badge-carrito {
+  top: 3px;    
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+}

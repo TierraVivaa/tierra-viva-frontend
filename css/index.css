@@ -215,3 +215,10 @@ footer {
     
     display: block; 
 }
+
+/* Icono del carrito */
+.badge-carrito {
+  top: 3px !important;    
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+}
