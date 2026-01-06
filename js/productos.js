@@ -183,38 +183,58 @@ function renderizarProductosMasVendidos() {
     col.classList.add("col-md-4");
 
     col.innerHTML = `
-      <div class="card product-card-agro shadow-sm mt-3">
-        <img src="${producto.imagen}" class="product-img-agro" alt="${
+  <div class="card product-card-agro shadow-sm mt-3">
+    <img src="${producto.imagen}" class="product-img-agro" alt="${
       producto.nombre
     }">
-        <div class="card-body">
-          <h5 class="price-agro">$${producto.precio.toLocaleString()}</h5>
-          <p class="old-price">
-            Precio por: <strong>${producto.unidad}</strong>
-            $${producto.precioOriginal.toLocaleString()}
-            <span class="discount-agro">-${producto.descuento}%</span>
-          </p>
-          <h5 class="card-title mb-3">${producto.nombre}</h5>
-          <div class="btn-wrapper d-flex justify-content-center">
-            <button 
-              class="btn btn-success btn-abrir-modal"
-              data-id="${producto.id}"
-              data-nombre="${producto.nombre}" 
-              data-precio="${producto.precio}"
-              data-unidad="${producto.unidad}"
-              data-imagen="${producto.imagen}"
-              data-stock="${producto.cantidadDisponible || 0}"
-              type="button"
-            >
-              <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
-            </button>
-          </div>
-        </div>
+    <div class="card-body">
+
+      <!-- Precio actual -->
+      <h5 class="price-agro">
+        ${formatoCOP(producto.precio)}
+      </h5>
+
+      <!-- Precio original / unidad / descuento -->
+      <p class="old-price">
+        Precio por: <strong>${producto.unidad}</strong>
+        ${formatoCOP(producto.precioOriginal)}
+        <span class="discount-agro">-${producto.descuento}%</span>
+      </p>
+
+      <h5 class="card-title mb-3">${producto.nombre}</h5>
+
+      <div class="btn-wrapper d-flex justify-content-center">
+        <button 
+          class="btn btn-success btn-abrir-modal"
+          data-id="${producto.id}"
+          data-nombre="${producto.nombre}" 
+          data-precio="${producto.precio}"
+          data-unidad="${producto.unidad}"
+          data-imagen="${producto.imagen}"
+          data-stock="${producto.cantidadDisponible || 0}"
+          type="button"
+        >
+          <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
+        </button>
       </div>
-    `;
+
+    </div>
+  </div>
+`;
 
     contenedorAgro.appendChild(col);
   });
+}
+// formato moneda
+function formatoCOP(valor) {
+  const numero = Number(valor) || 0;
+
+  return new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: numero % 1 === 0 ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(numero);
 }
 
 //  Cargar productos guardados en LocalStorage
@@ -277,50 +297,48 @@ function renderizarProductosPorCategoria() {
       col.classList.add("col-md-4");
 
       col.innerHTML = `
-        <div class="card product-card-agro shadow-sm mt-3">
-          <img src="${producto.imagen}" class="product-img-agro" alt="${
+  <div class="card product-card-agro shadow-sm mt-3">
+    <img src="${producto.imagen}" class="product-img-agro" alt="${
         producto.titulo
       }">
-          <div class="card-body">
-            <h5 class="price-agro">$         ${
-              parseFloat(producto.precio || 0) % 1 === 0
-                ? parseFloat(producto.precio || 0).toLocaleString()
-                : parseFloat(producto.precio || 0).toFixed(2)
-            }</h5>
-            <div class="price-block" style="min-height: 45px;">
-              <p class="old-price mb-0">
-                Precio por: <strong>${producto.unidad || "N/A"}</strong>
-    $${
-      parseFloat(producto.precio || 0) % 1 === 0
-        ? parseFloat(producto.precio || 0).toLocaleString()
-        : parseFloat(producto.precio || 0).toFixed(2)
-    }
-              </p>
-              ${
-                producto.descuento && producto.descuento > 0
-                  ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
-                  : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`
-              }
-            </div>
-            <h5 class="card-title mb-3">${producto.titulo}</h5>
-            <p>${producto.descripcion || ""}</p>
-            <div class="btn-wrapper d-flex justify-content-center">
-              <button 
-                class="btn btn-success btn-abrir-modal"
-                data-id="${producto.id}"
-                data-nombre="${producto.titulo}"
-                data-precio="${producto.precio}"
-                data-unidad="${producto.unidad}"
-                data-imagen="${producto.imagen}"
-                data-stock="${producto.cantidadDisponible || 0}" 
-                type="button"
-              >
-                <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
-              </button>
-            </div>
-          </div>
-        </div>
-      `;
+    <div class="card-body">
+      <h5 class="price-agro">
+        ${formatoCOP(producto.precio)}
+      </h5>
+
+      <div class="price-block" style="min-height: 45px;">
+        <p class="old-price mb-0">
+          Precio por: <strong>${producto.unidad || "N/A"}</strong>
+          ${formatoCOP(producto.precio)}
+        </p>
+
+        ${
+          producto.descuento > 0
+            ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
+            : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`
+        }
+      </div>
+
+      <h5 class="card-title mb-3">${producto.titulo}</h5>
+      <p>${producto.descripcion || ""}</p>
+
+      <div class="btn-wrapper d-flex justify-content-center">
+        <button 
+          class="btn btn-success btn-abrir-modal"
+          data-id="${producto.id}"
+          data-nombre="${producto.titulo}"
+          data-precio="${producto.precio}"
+          data-unidad="${producto.unidad}"
+          data-imagen="${producto.imagen}"
+          data-stock="${producto.cantidadDisponible || 0}" 
+          type="button"
+        >
+          <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
+        </button>
+      </div>
+    </div>
+  </div>
+`;
 
       contenedorCategoria.appendChild(col);
     });
@@ -575,7 +593,6 @@ document.addEventListener("DOMContentLoaded", function () {
   configurarCarrito();
 });
 
-
 // ========== CONFIGURAR BOTONES ==========
 function configurarBotonesProductos() {
   const botones = document.querySelectorAll(".btn-abrir-modal");
@@ -678,7 +695,9 @@ function renderizarCarrito() {
           <img src="${item.imagen}" width="70" class="rounded border">
           <div>
             <h6 class="fw-bold mb-1">${item.nombre}</h6>
-            <small class="text-muted">${item.cantidad} × $${item.precio.toLocaleString()}</small>
+<small class="text-muted">
+  ${item.cantidad} × ${formatoCOP(item.precio)}
+</small>
             <div class="fw-semibold text-success">$${subtotal.toLocaleString()}</div>
           </div>
         </div>
@@ -705,7 +724,5 @@ function eliminarDelCarrito(index) {
 
 // BOTÓN COMPRAR AHORA → Redirige a otra vista
 document.getElementById("btnComprarAhora")?.addEventListener("click", () => {
-  window.location.href = "/html/pedido.html"; 
+  window.location.href = "/html/pedido.html";
 });
-
-
