@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
+  if(!localStorage.getItem("loginData")){
+    location.replace("/html/iniciarSesion.html")
+    return;
+  }
+
+  if(localStorage.getItem("loginData")) {
+    
+    const {usuario, password} = JSON.parse(localStorage.getItem("loginData"))
+    
+    if(usuario !== "Admin1234" && password !== "admin") {
+      location.replace("/html/iniciarSesion.html")
+      return;
+    }
+  }
+  
   const btnFormulario = document.getElementById("btnFormulario");
   const form = document.getElementById("Formulario");
 

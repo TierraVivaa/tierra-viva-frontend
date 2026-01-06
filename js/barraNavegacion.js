@@ -3,15 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if(!document.getElementById("navbarNav")){
     return;
   }
-
-  if(document.getElementById("navbarNav").children[1].textContent == "Cerrar sesión") {
-    document.getElementById("navbarNav").children[1].textContent == "Inciar Sesión"
-    localStorage.setItem("loginData", {}); // limpiamos el localstorage
-    return;
-  }
   
   if(localStorage.getItem("loginData")) {
-    
+
     const {usuario, password} = JSON.parse(localStorage.getItem("loginData"))
     
     if(usuario === "Admin1234" && password === "admin") {

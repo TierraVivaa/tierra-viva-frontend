@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("loginForm");
-    localStorage.setItem("loginData", {}); // limpiamos el localstorage
+    localStorage.removeItem("loginData"); // limpiamos el localstorage
 
     form.addEventListener("submit", (e) => {
         e.preventDefault(); // Evita que recargue la pagina

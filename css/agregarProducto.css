@@ -1,7 +1,6 @@
 form {
   width: 370px;
   margin: 40px auto;
-  background: #f5e9da;
   padding: 20px;
   border-radius: 12px;
 }
@@ -58,7 +57,6 @@ form {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
   width: 100%;
   margin: 0 0 1.5rem 0;
-  background: #f5e9da;
   padding: 18px;
   border-radius: 12px;
   border-top-left-radius: 0;
@@ -142,16 +140,6 @@ main {
   overflow: visible !important;
 
   display: block;
-  background: 
-    /* url("../assets/images/agregarProducto/fondo1.png") no-repeat center/cover, */
-    /* url("../assets/images/agregarProducto/fondo3.png") no-repeat center/cover, */ url("../assets/images/agregarProducto/fondo4.png")
-      no-repeat center/cover,
-    /* url("../assets/images/agregarProducto/fondo5.png") no-repeat center/cover, */
-      /* linear-gradient(135deg, #f8fff8 0%, #f0f8ea 100%); */
-      /* linear-gradient(135deg, #aaffaa 0%, #ffb06b 100%); */
-      /* linear-gradient(135deg, #b2ffda 0%, #ff9d9d 100%); */
-      /* linear-gradient(135deg, #fff7a1 0%, #ff8f5e 100%); */
-      linear-gradient(135deg, #c7ff8a 0%, #ffe49c 100%);
 }
 
 .form-control::placeholder,
@@ -167,4 +155,28 @@ main {
   color: rgb(77, 77, 77) !important;
   font-size: 14px;
   opacity: 0.7 !important;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #00B412;
+}
+
+.btn-success {
+  background: #00B412 !important;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 300px;
+  color: #fff;
+  transition: 0.3s ease;
+  display: block !important;
+  margin:auto;
+}
+
+.btn-primary:hover {
+  background: #7AD034  !important;
+  transform: translateY(-2px);
 }
