@@ -10,6 +10,12 @@
     background: white;
 }
 
+@media (max-width: 600px) {
+    .login-card{
+        width: 100%;
+    }
+}
+
 .login-imagen{
     width: 100%;
     height: 100%;

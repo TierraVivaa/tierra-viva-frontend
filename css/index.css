@@ -13,10 +13,17 @@ main {
   margin: 4rem;
 }
 
+@media (max-width: 600px) {
+  main{
+      margin: 2rem;
+  }
+}
+
 footer {
   background-color: #f5e9da;
   color: #000000;
   padding-top: 20px;
+  padding-bottom: 20px;
   margin-top: auto;
 }
 
