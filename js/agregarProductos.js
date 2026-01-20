@@ -50,13 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
         datosFormulario[input.name] = input.value;
       }
     });
-
-    const dateMS = Date.now();
-    datosFormulario["id"] = dateMS;
-
+  
     if (!datosFormulario.archivoImagen) {
       datosFormulario["imagen"] = null;
-      guardarEnLocalStorage(datosFormulario);
+      enviarProductoABackend(datosFormulario);
       return;
     }
 
@@ -72,7 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
       datosFormulario["imagen"] = e.target.result;
       delete datosFormulario.archivoImagen;
 
-      guardarEnLocalStorage(datosFormulario);
+      enviarProductoABackend(datosFormulario);
+
     };
 
     reader.readAsDataURL(datosFormulario.archivoImagen);
@@ -317,28 +315,59 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function guardarEnLocalStorage(datosFormulario) {
-    console.info("Datos del formulario FINAL: ", datosFormulario);
+  //CONEXIÓN con base de datos.
 
-    let productos = JSON.parse(localStorage.getItem("productosJSON")) || [];
+function enviarProductoABackend(datosFormulario) {
+  console.info("Datos recibidos del formulario:", datosFormulario);
 
-    productos.push(datosFormulario);
-    localStorage.setItem("productosJSON", JSON.stringify(productos));
+  const producto = {
+    nombre: datosFormulario.titulo,
+    descripcion: datosFormulario.descripcion,
+    fechaVencimiento: datosFormulario.fechaVencimiento,
+    precioUnitario: Number(datosFormulario.precio),
+    unidadDePeso: datosFormulario.unidad,
+    stock: datosFormulario.cantidadDisponible,
+    imagen: datosFormulario.imagen,
+    categoria: {
+    idCategoria: Number(document.getElementById("categoria").value)
+  }
+  };
 
-    Swal.fire({
-      icon: "success",
-      title: "¡Éxito!",
-      text: "Producto añadido correctamente",
-      confirmButtonText: "Aceptar",
-      timer: 3000, // Se cierra automáticamente después de 3 segundos
-      timerProgressBar: true,
-    });
+  fetch("http://localhost:8080/productos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(producto)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error al guardar el producto en la base de datos");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Producto guardado en BD:", data);
 
-    console.log("Todos los productos en localStorage:", productos);
+      Swal.fire({
+        icon: "success",
+        title: "Producto creado",
+        text: "El producto se guardó correctamente en la base de datos",
+        timer: 2500,
+        showConfirmButton: false
+      });
 
-    setTimeout(() => {
       form.reset();
       limpiarErrores();
-    }, 1000);
-  }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.message
+      });
+    });
+}
+
 });

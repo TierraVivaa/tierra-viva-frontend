@@ -9,6 +9,16 @@ body {
   font-family: sans-serif;
 }
 
+body {
+  background-image: url("../assets/images/home/fondo-tierra\ \(3\).png") !important;
+  background-size: cover;         
+  background-position: center;     
+  background-repeat: no-repeat;    
+  background-attachment: fixed;   
+  min-height: 100vh;
+}
+
+
 main {
   margin: 4rem;
 }

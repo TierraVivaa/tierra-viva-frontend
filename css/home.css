@@ -29,11 +29,14 @@
 
 .card-services h3 {
   margin-bottom: 10px;
-  font-size: 22px;
+  font-size: 20px;
+  font-weight: 700;
+  
 }
 
 .card-services p {
-  font-size: 14px;
+  font-size: 18px;
+  text-align: justify;
 }
 
 .btn-services {

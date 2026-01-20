@@ -7,13 +7,14 @@
 /* Hover (opcional, para un efecto suave) */
 .accordion-button:hover {
     background-color: #f7f7f7 !important; 
-}
+     }
 
 /* Cuando está abierta (desplegada) → sombreado verde claro */
 .accordion-button:not(.collapsed) {
     background-color: #E1FFB8 !important;   /* Verde claro */
     color: #000 !important;
     box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+    
 }
 
 /* Quitar borde y sombra azul al hacer click */
