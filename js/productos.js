@@ -34,143 +34,37 @@ const productosMasVendidos = [
   },
 ];
 
-// Array de productos base (simula BD)
-let productosAgro = [
-  {
-    id: 9001,
-    titulo: "Banano",
-    categoria: "Frutas",
-    precio: 3200,
-    precioOriginal: 3800,
-    descuento: 16,
-    unidad: "kg",
-    cantidadDisponible: 120, // Agregado
-    descripcion: "Banano fresco de alta calidad.",
-    imagen: "../assets/images/CatalogoProducto/banano.jpg",
-    fechaVencimiento: "2025-12-20",
-  },
-  {
-    id: 9002,
-    titulo: "Café Pergamino",
-    categoria: "Cafe",
-    precio: 18000,
-    precioOriginal: 20000,
-    descuento: 10,
-    unidad: "libra",
-    cantidadDisponible: 50, // Agregado
-    descripcion: "Café artesanal tostado y molido.",
-    imagen: "../assets/images/CatalogoProducto/cafe.jpg",
-    fechaVencimiento: "2026-03-01",
-  },
-  {
-    id: 9003,
-    titulo: "Cebolla Cabezona",
-    categoria: "Verduras",
-    precio: 2200,
-    precioOriginal: 2800,
-    descuento: 21,
-    unidad: "kg",
-    cantidadDisponible: 180, // Agregado
-    descripcion: "Cebolla cabezona fresca ideal para cocinar.",
-    imagen: "../assets/images/CatalogoProducto/cebolla_cabezona.jpg",
-    fechaVencimiento: "2025-12-10",
-  },
-  {
-    id: 9004,
-    titulo: "Fresas",
-    categoria: "Frutas",
-    precio: 8500,
-    precioOriginal: 9500,
-    descuento: 10,
-    unidad: "libra",
-    cantidadDisponible: 35, // Agregado
-    descripcion: "Fresas rojas dulces y frescas.",
-    imagen: "../assets/images/CatalogoProducto/fresas.jpg",
-    fechaVencimiento: "2025-12-08",
-  },
-  {
-    id: 9005,
-    titulo: "Fríjol Rojo",
-    categoria: "Granos",
-    precio: 4200,
-    precioOriginal: 5000,
-    descuento: 16,
-    unidad: "libra",
-    cantidadDisponible: 90, // Agregado
-    descripcion: "Fríjol bola roja seleccionado.",
-    imagen: "../assets/images/CatalogoProducto/frijol.jpg",
-    fechaVencimiento: "2026-05-15",
-  },
-  {
-    id: 9006,
-    titulo: "Papa Pastusa",
-    categoria: "Tubérculos",
-    precio: 1800,
-    precioOriginal: 2500,
-    descuento: 28,
-    unidad: "kg",
-    cantidadDisponible: 250, // Agregado
-    descripcion: "Papa pastusa fresca ideal para cocinar.",
-    imagen: "../assets/images/CatalogoProducto/papa.jpg",
-    fechaVencimiento: "2025-12-15",
-  },
-  {
-    id: 9007,
-    titulo: "Papaya",
-    categoria: "Frutas",
-    precio: 3500,
-    precioOriginal: 4200,
-    descuento: 17,
-    unidad: "kg",
-    cantidadDisponible: 45, // Agregado
-    descripcion: "Papaya dulce lista para consumir.",
-    imagen: "../assets/images/CatalogoProducto/papaya.jpg",
-    fechaVencimiento: "2025-12-12",
-  },
-  {
-    id: 9008,
-    titulo: "Tomate Chonto",
-    categoria: "Verduras",
-    precio: 2700,
-    precioOriginal: 3400,
-    descuento: 20,
-    unidad: "kg",
-    cantidadDisponible: 110, // Agregado
-    descripcion: "Tomate fresco ideal para ensaladas y cocina.",
-    imagen: "../assets/images/CatalogoProducto/tomate.jpg",
-    fechaVencimiento: "2025-12-08",
-  },
-  {
-    id: 9009,
-    titulo: "Yuca",
-    categoria: "Tubérculos",
-    precio: 1700,
-    precioOriginal: 2300,
-    descuento: 26,
-    unidad: "kg",
-    cantidadDisponible: 95, // Agregado
-    descripcion: "Yuca fresca de excelente calidad.",
-    imagen: "../assets/images/CatalogoProducto/yuca.jpg",
-    fechaVencimiento: "2025-12-16",
-  },
-  {
-    id: 9010,
-    titulo: "Zanahoria",
-    categoria: "Verduras",
-    precio: 1500,
-    precioOriginal: 2100,
-    descuento: 28,
-    unidad: "kg",
-    cantidadDisponible: 160, // Agregado
-    descripcion: "Zanahoria fresca y crujiente.",
-    imagen: "../assets/images/CatalogoProducto/zanahoria.jpg",
-    fechaVencimiento: "2025-12-18",
-  },
-];
-
 // Variables globales
 let productoActual = null;
 let modalCantidad = null;
+
+async function getProductosDeLaBd() {
+  let productosAgro = [];
+  
+  await fetch("http://localhost:8080/productos")
+    .then(async response => {
+      if (!response.ok) {
+        throw new Error("Error al obtener los productos de la bd");
+      }
+      return await response.json();
+    })
+    .then(data => {
+      productosAgro = data;
+    })
+    .catch(error => {
+      console.error("Error:", error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "No se han podido cargar los productos"
+      });
+
+      return null;
+    });
+
+    return productosAgro;
+}
 
 function renderizarProductosMasVendidos() {
   const contenedorAgro = document.getElementById("productos-agro");
@@ -258,20 +152,20 @@ productosLocal = productosLocal.map((producto) => ({
 
 console.log("Productos convertidos:", productosLocal);
 
-function renderizarProductosPorCategoria() {
+async function renderizarProductosPorCategoria() {
   const contenedorSecciones = document.getElementById("contenedor-secciones");
   if (!contenedorSecciones) return;
 
   contenedorSecciones.innerHTML = "";
+  
+  let todosProductos = await getProductosDeLaBd()
 
-  // Cargar productos del localStorage
-  let productosLocal = JSON.parse(localStorage.getItem("productosJSON")) || [];
-  let todosProductos = [...productosAgro, ...productosLocal];
+  if(todosProductos == null) return;
 
   // Agrupar productos por categoría
   const productosPorCategoria = {};
   todosProductos.forEach((producto) => {
-    const cat = producto.categoria;
+    const cat = producto.categoria.nombre;
     if (!productosPorCategoria[cat]) {
       productosPorCategoria[cat] = [];
     }
@@ -297,48 +191,44 @@ function renderizarProductosPorCategoria() {
       col.classList.add("col-md-4");
 
       col.innerHTML = `
-  <div class="card product-card-agro shadow-sm mt-3">
-    <img src="${producto.imagen}" class="product-img-agro" alt="${
-        producto.titulo
-      }">
-    <div class="card-body">
-      <h5 class="price-agro">
-        ${formatoCOP(producto.precio)}
-      </h5>
+      <div class="card product-card-agro shadow-sm mt-3">
+        <img src="${producto.imagen}" class="product-img-agro" alt="${producto.nombre
+            }">
+        <div class="card-body">
+          <h5 class="price-agro">
+            ${formatoCOP(producto.precioUnitario)}
+          </h5>
 
-      <div class="price-block" style="min-height: 45px;">
-        <p class="old-price mb-0">
-          Precio por: <strong>${producto.unidad || "N/A"}</strong>
-          ${formatoCOP(producto.precio)}
-        </p>
+          <div class="price-block" style="min-height: 45px;">
+            <p class="old-price mb-0">
+              Precio por: <strong>${producto.unidadDePeso || "N/A"}</strong>
+              ${formatoCOP(producto.precioUnitario)}
+            </p>
 
-        ${
-          producto.descuento > 0
-            ? `<span class="discount-agro d-inline-block mt-1">-${producto.descuento}%</span>`
-            : `<span class="discount-placeholder d-inline-block mt-1" style="height: 20px; display:block;"></span>`
-        }
+            <span class="discount-agro d-inline-block mt-1">-10%</span>
+            
+          </div>
+
+          <h5 class="card-title mb-3">${producto.nombre}</h5>
+          <p>${producto.descripcion || ""}</p>
+
+          <div class="btn-wrapper d-flex justify-content-center">
+            <button 
+              class="btn btn-success btn-abrir-modal"
+              data-id="${producto.idProducto}"
+              data-nombre="${producto.nombre}"
+              data-precio="${producto.precioUnitario}"
+              data-unidad="${producto.unidadDePeso}"
+              data-imagen="${producto.imagen}"
+              data-stock="${producto.stock || 0}" 
+              type="button"
+            >
+              <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
+            </button>
+          </div>
+        </div>
       </div>
-
-      <h5 class="card-title mb-3">${producto.titulo}</h5>
-      <p>${producto.descripcion || ""}</p>
-
-      <div class="btn-wrapper d-flex justify-content-center">
-        <button 
-          class="btn btn-success btn-abrir-modal"
-          data-id="${producto.id}"
-          data-nombre="${producto.titulo}"
-          data-precio="${producto.precio}"
-          data-unidad="${producto.unidad}"
-          data-imagen="${producto.imagen}"
-          data-stock="${producto.cantidadDisponible || 0}" 
-          type="button"
-        >
-          <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
-        </button>
-      </div>
-    </div>
-  </div>
-`;
+    `;
 
       contenedorCategoria.appendChild(col);
     });
