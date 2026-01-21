@@ -284,7 +284,7 @@ function renderizarProductosPorCategoria() {
     seccion.classList.add("mb-5");
 
     seccion.innerHTML = `
-      <h3 class="mt-4 mb-3">${categoria}</h3>
+      <h3 class="titulo-categoria mt-4 mb-3">${categoria}</h3>
       <div class="row" id="cat-${categoria}"></div>
     `;
 
