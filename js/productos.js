@@ -657,7 +657,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // MODAL DEL CARRITO
 // =====================
 
-// Abrir modal al hacer click en el icono del carrito
 document.getElementById("btnCarrito")?.addEventListener("click", () => {
   renderizarCarrito();
   const modal = new bootstrap.Modal(document.getElementById("modalCarrito"));
@@ -695,16 +694,25 @@ function renderizarCarrito() {
           <img src="${item.imagen}" width="70" class="rounded border">
           <div>
             <h6 class="fw-bold mb-1">${item.nombre}</h6>
-<small class="text-muted">
-  ${item.cantidad} × ${formatoCOP(item.precio)}
-</small>
+            <small class="text-muted">
+              ${item.cantidad} × ${formatoCOP(item.precio)}
+            </small>
             <div class="fw-semibold text-success">$${subtotal.toLocaleString()}</div>
           </div>
         </div>
 
-        <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${index})">
-          <i class="bi bi-trash"></i>
-        </button>
+        <div class="d-flex gap-2 align-items-center">
+          <button class="btn btn-sm btn-outline-secondary" onclick="decrementarCantidad(${index})" title="Quitar una unidad">
+            <i class="bi bi-dash"></i>
+          </button>
+          <span class="fw-bold">${item.cantidad}</span>
+          <button class="btn btn-sm btn-outline-secondary" onclick="incrementarCantidad(${index})" title="Agregar una unidad">
+            <i class="bi bi-plus"></i>
+          </button>
+          <button class="btn btn-sm btn-danger ms-2" onclick="eliminarDelCarrito(${index})" title="Eliminar producto">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
       </div>
     `;
   });
@@ -712,7 +720,34 @@ function renderizarCarrito() {
   totalCarrito.textContent = `$${total.toLocaleString()}`;
 }
 
-// Eliminar producto
+// Decrementar cantidad (eliminar una unidad)
+function decrementarCantidad(index) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  
+  if (carrito[index].cantidad > 1) {
+    carrito[index].cantidad--;
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  } else {
+    // Si solo queda 1, eliminar el producto completo
+    carrito.splice(index, 1);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }
+
+  renderizarCarrito();
+  actualizarContadorCarrito();
+}
+
+// Incrementar cantidad (agregar una unidad)
+function incrementarCantidad(index) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  carrito[index].cantidad++;
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  renderizarCarrito();
+  actualizarContadorCarrito();
+}
+
+// Eliminar producto completo
 function eliminarDelCarrito(index) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   carrito.splice(index, 1);
