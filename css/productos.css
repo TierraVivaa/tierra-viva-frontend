@@ -86,3 +86,13 @@ height: auto !important;
 .card-text {
   font-size: 1.10rem;
 }
+
+.titulo-categoria {
+  font-size: 1.8rem;      
+  font-weight: 700;       
+  color: #2e7d32;        
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-left: 5px solid #7ad03a;
+  padding-left: 12px;
+}
