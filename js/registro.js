@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let formularioValido = true;
 
-        // ---- VALIDACIONES ----
+        //#region ---- VALIDACIONES ----
         if (nombreInput.value.trim() === "") {
             nombreInput.classList.add("is-invalid");
             formularioValido = false;
@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             passwordInput.classList.add("is-valid");
         }
 
+        //#endregion ---- VALIDACIONES ----
         
         if (!formularioValido) {
             return;
@@ -63,34 +64,64 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: nombreInput.value,
             usuario: usuarioInput.value,
             email: emailInput.value,
-            numero: numeroInput.value,
-            password: passwordInput.value
+            numeroCelular: numeroInput.value,
+            contrasena: passwordInput.value
         };
 
-        // Inicializar array si no existe
-        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        // ToDo Verificar si ya existe usuario
+        // const existe = usuarios.some(u => u.usuario === usuarioInput.value);
 
-        // Verificar si ya existe usuario
-        const existe = usuarios.some(u => u.usuario === usuarioInput.value);
+        
+        // if (existe) {
+        //     alert("Ese nombre de usuario ya está registrado");
+        //     usuarioInput.classList.add("is-invalid");
+        //     return;
+        // }
 
-        if (existe) {
-            alert("Ese nombre de usuario ya está registrado");
-            usuarioInput.classList.add("is-invalid");
-            return;
-        }
+        fetch("http://localhost:8080/usuarios", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newUser)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al guardar el producto en la base de datos");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Usuario guardado en BD:", data);
+            
+            Swal.fire({
+                icon: "success",
+                title: "Usuario creado",
+                text: "El usuario se registró satisfactoriamente"
+            }).then((result) => {
+                // Redireccionar solo después de que el usuario haga clic en 'Continuar'
+                if (result.isConfirmed) {
+                    form.reset();
+                    window.location.pathname = "/html/iniciarSesion.html";
+                }
+            });
+        })
+        .catch(error => {
+            console.error("Error:", error);
 
-        // Guardar
-        usuarios.push(newUser);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-        alert("Cuenta creada exitosamente");
-
-        form.reset();
-        document
-            .querySelectorAll(".is-valid")
-            .forEach(el => el.classList.remove("is-valid"));
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Error al registrar el usuario"
+            });
+            
+            form.reset();
+            
+            document
+                .querySelectorAll(".is-valid")
+                .forEach(el => el.classList.remove("is-valid"));
+        });
     });
 });
+
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("passwordReg");
 const icon = togglePassword.querySelector("i");
