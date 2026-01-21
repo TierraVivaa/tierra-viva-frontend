@@ -5,14 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  if(localStorage.getItem("loginData")) {
-    
-    const {usuario, password} = JSON.parse(localStorage.getItem("loginData"))
-    
-    if(usuario !== "Admin1234" && password !== "admin") {
-      location.replace("/html/iniciarSesion.html")
-      return;
-    }
+  // Validamos que es admin
+  const {usuario, password} = JSON.parse(localStorage.getItem("loginData"))
+  if(usuario !== "Admin1234" && password !== "admin") {
+    location.replace("/html/iniciarSesion.html")
+    return;
   }
   
   const btnFormulario = document.getElementById("btnFormulario");
@@ -31,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const datosFormulario = {};
 
-    // 1️⃣ Tomamos todos los campos del formulario
+    // Tomamos todos los campos del formulario
     form.querySelectorAll("input, select, textarea").forEach((input) => {
       if (input.name === "precio" || input.name === "cantidadDisponible") {
         // Convertir a número inmediatamente
@@ -46,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (input.files && input.files.length > 0) {
           datosFormulario["archivoImagen"] = input.files[0];
         }
+        datosFormulario["imagen"] = input.files[0];
       } else {
         datosFormulario[input.name] = input.value;
       }
@@ -63,17 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const reader = new FileReader();
+    enviarProductoABackend(datosFormulario);
 
-    reader.onload = function (e) {
-      datosFormulario["imagen"] = e.target.result;
-      delete datosFormulario.archivoImagen;
-
-      enviarProductoABackend(datosFormulario);
-
-    };
-
-    reader.readAsDataURL(datosFormulario.archivoImagen);
   });
 
   function validarFormulario() {
@@ -316,58 +305,52 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //CONEXIÓN con base de datos.
+  function enviarProductoABackend(datosFormulario) {
 
-function enviarProductoABackend(datosFormulario) {
-  console.info("Datos recibidos del formulario:", datosFormulario);
+    // Crear un json pa enviar archivos no sirve, toca con FormData
+    const formData = new FormData();
 
-  const producto = {
-    nombre: datosFormulario.titulo,
-    descripcion: datosFormulario.descripcion,
-    fechaVencimiento: datosFormulario.fechaVencimiento,
-    precioUnitario: Number(datosFormulario.precio),
-    unidadDePeso: datosFormulario.unidad,
-    stock: datosFormulario.cantidadDisponible,
-    imagen: datosFormulario.imagen,
-    categoria: {
-    idCategoria: Number(document.getElementById("categoria").value)
+    formData.append("nombre", datosFormulario.titulo);
+    formData.append("descripcion", datosFormulario.descripcion);
+    formData.append("fechaVencimiento", datosFormulario.fechaVencimiento);
+    formData.append("precioUnitario", Number(datosFormulario.precio));
+    formData.append("unidadDePeso", datosFormulario.unidad);
+    formData.append("stock", datosFormulario.cantidadDisponible);
+    formData.append("imagen", datosFormulario.imagen); // File
+    formData.append("idCategoria", Number(document.getElementById("categoria").value));
+
+    fetch("http://localhost:8080/productos", {
+      method: "POST",
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error al guardar el producto en la base de datos");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Producto guardado en BD:", data);
+
+        Swal.fire({
+          icon: "success",
+          title: "Producto creado",
+          text: "El producto se guardó correctamente en la base de datos",
+          timer: 2500,
+          showConfirmButton: false
+        });
+
+        form.reset();
+        limpiarErrores();
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: error.message
+        });
+      });
   }
-  };
-
-  fetch("http://localhost:8080/productos", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(producto)
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Error al guardar el producto en la base de datos");
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("Producto guardado en BD:", data);
-
-      Swal.fire({
-        icon: "success",
-        title: "Producto creado",
-        text: "El producto se guardó correctamente en la base de datos",
-        timer: 2500,
-        showConfirmButton: false
-      });
-
-      form.reset();
-      limpiarErrores();
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: error.message
-      });
-    });
-}
 
 });
