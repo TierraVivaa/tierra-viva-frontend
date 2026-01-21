@@ -1,4 +1,4 @@
-const productosAgro1 = [
+const productosDescuento = [
   {
     id: 9001,
     nombre: "Banano",
@@ -31,9 +31,9 @@ const productosAgro1 = [
   },
 ];
 
-const contenedorAgro = document.getElementById("productos-agro");
+const contenedorAgro = document.getElementById("productos-descuento");
 
-productosAgro1.forEach((producto) => {
+productosDescuento.forEach((producto) => {
   const col = document.createElement("div");
   col.classList.add("col-md-4");
 
@@ -41,12 +41,12 @@ productosAgro1.forEach((producto) => {
     <div class="card product-card-agro shadow-sm mt-3">
 
       <img src="${producto.imagen}" class="product-img-agro" alt="${
-    producto.nombre
-  }">
+        producto.nombre
+      }">
 
       <div class="card-body">
         
-        <h5 class="price-agro">$${producto.precio.toLocaleString()}</h5>
+        <h5 class="price-agro">${formatoCOP(producto.precio)}</h5>
 
         <p class="unit-agro"></strong></p>
 
@@ -57,11 +57,15 @@ productosAgro1.forEach((producto) => {
         </p>
 
         <h5 class="card-title mb-3">${producto.nombre}</h5>
-\
+
 
       </div>
     </div>
   `;
+
+  col.querySelector('.card').addEventListener('click', () => {
+    window.location.href = 'html/productos.html#productos-agro';
+  });
 
   contenedorAgro.appendChild(col);
 });
@@ -119,4 +123,3 @@ document
         });
       });
   });
-
