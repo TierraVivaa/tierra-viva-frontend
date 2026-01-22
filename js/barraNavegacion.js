@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if(localStorage.getItem("loginData")) {
 
-    const {usuario, password} = JSON.parse(localStorage.getItem("loginData"))
+    const {usuario, contrasena} = JSON.parse(localStorage.getItem("loginData"))
     
-    if(usuario === "Admin1234" && password === "admin") {
+    if(usuario === "Admin1234" && contrasena === "admin") {
       // Si ingresa el admin se añade el link "AGREGAR PRODUCTO" a la navbar 
       const padre = document.getElementById("navbarNav").children[0]
 
