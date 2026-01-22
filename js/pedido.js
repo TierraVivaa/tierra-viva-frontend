@@ -46,9 +46,32 @@ document.addEventListener("DOMContentLoaded", () => {
     totalSpan.textContent = `$${subtotal.toLocaleString()}`; 
 
     
-    document.getElementById("btnConfirmarPedido").addEventListener("click", () => {
-        alert("¡Gracias por tu compra! 🛒🌱");
-        localStorage.removeItem("carrito");
-        window.location.href = "/html/productos.html";
+    btnConfirmarPedido.addEventListener("click", () => {
+        Swal.fire({
+            title: "¿Confirmar compra?",
+            text: "¿Deseas finalizar tu pedido?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Sí, pagar",
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#28a745",
+            cancelButtonColor: "#d33",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    icon: "success",
+                    title: "¡Gracias por tu compra! 🛒🌱",
+                    text: "Tu pedido fue confirmado exitosamente",
+                    confirmButtonText: "Aceptar",
+                    confirmButtonColor: "#3085d6",
+                });
+
+                localStorage.removeItem("carrito");
+
+                setTimeout(() => {
+                    window.location.href = "/html/productos.html";
+                }, 1500);
+            }
+        });
     });
 });
