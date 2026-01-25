@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const a = document.createElement("a")
       a.classList.add("nav-link", "fw-semibold")
-      a.href = "/html/agregarProducto.html"
-      a.textContent = "Agregar producto"
+      a.href = "/html/gestionProductos.html"
+      a.textContent = "Gestionar Productos"
       
       padre.appendChild(li).appendChild(a)
     } 

@@ -82,7 +82,7 @@ async function cargarProducto(id) {
 
         const producto = await response.json();
         Swal.close();
-        
+        console.log(producto)
         llenarFormulario(producto);
 
     } catch (error) {

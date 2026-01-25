@@ -226,3 +226,168 @@ main {
       .header-content {
         flex: 1;
       }
+
+
+/* BOTONES DE ACCIÓN - ESTILOS RESPONSIVE */
+.btn-enviar {
+  display: flex;
+  gap: 1rem; /* Aumenté el gap para más separación */
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los botones */
+  margin: 2rem 0 1rem 0; /* Más margen arriba y abajo */
+  padding: 0 0.5rem; /* Padding lateral para móviles */
+}
+
+.btn-enviar .btn {
+  flex: 1 1 auto;
+  min-width: 200px; /* Aumenté el ancho mínimo */
+  max-width: 300px; /* Ancho máximo para no estirarse mucho */
+  margin: 0.25rem 0; /* Margen vertical entre botones */
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem; /* Padding más balanceado */
+  border-radius: 12px; /* Bordes más redondeados */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Botón principal (Crear/Actualizar) */
+.btn-enviar .btn-success {
+  background: linear-gradient(135deg, #00B412, #7AD034) !important;
+  color: white !important;
+}
+
+.btn-enviar .btn-success:hover {
+  background: linear-gradient(135deg, #009a0f, #68b82a) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 180, 18, 0.2);
+}
+
+/* Botón secundario (Cancelar) - Si lo agregas */
+.btn-enviar .btn-secondary {
+  background: linear-gradient(135deg, #6c757d, #8a939b) !important;
+  color: white !important;
+}
+
+.btn-enviar .btn-secondary:hover {
+  background: linear-gradient(135deg, #5a6268, #727b84) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(108, 117, 125, 0.2);
+}
+
+/* RESPONSIVE - Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .btn-enviar {
+    flex-direction: column; /* Apila los botones verticalmente */
+    gap: 0.75rem; /* Reduce el gap en móviles */
+    padding: 0 1rem; /* Más padding en móviles */
+  }
+  
+  .btn-enviar .btn {
+    width: 100% !important; /* Ocupa todo el ancho */
+    max-width: 100% !important; /* Sin límite máximo */
+    min-width: unset !important; /* Elimina el mínimo */
+    margin: 0.25rem 0; /* Margen uniforme */
+    font-size: 1rem; /* Texto un poco más pequeño */
+    padding: 0.875rem 1.25rem; /* Padding ajustado */
+  }
+  
+  .btn-enviar .btn i {
+    font-size: 1.2rem; /* Iconos más grandes en móviles */
+  }
+}
+
+/* Para pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+  .btn-enviar {
+    gap: 0.5rem; /* Gap aún más pequeño */
+    margin: 1.5rem 0 0.5rem 0; /* Menos margen */
+  }
+  
+  .btn-enviar .btn {
+    padding: 0.75rem 1rem; /* Padding reducido */
+    font-size: 0.95rem; /* Texto más pequeño */
+  }
+}
+
+/* Para pantallas medianas */
+@media (min-width: 769px) and (max-width: 992px) {
+  .btn-enviar {
+    gap: 0.75rem; /* Gap intermedio */
+  }
+  
+  .btn-enviar .btn {
+    min-width: 180px; /* Ancho mínimo reducido */
+    max-width: 250px; /* Ancho máximo reducido */
+  }
+}
+
+/* Asegurar que los botones tengan buen espacio entre sí cuando están en línea */
+@media (min-width: 769px) {
+  .btn-enviar:not(.single-button) .btn {
+    margin: 0 0.25rem; /* Margen horizontal cuando hay múltiples botones */
+  }
+}
+
+/* Clase para cuando solo hay un botón (modo creación) */
+.btn-enviar.single-button {
+  justify-content: center; /* Centra el único botón */
+}
+
+.btn-enviar.single-button .btn {
+  max-width: 350px; /* Botón más ancho cuando está solo */
+}
+
+/* Para cuando hay dos botones (modo edición) */
+.btn-enviar.double-button {
+  justify-content: space-between; /* Distribuye el espacio */
+}
+
+@media (max-width: 768px) {
+  .btn-enviar.double-button {
+    justify-content: center; /* En móviles los centra */
+  }
+}
+
+/* Ajustes para los iconos dentro de los botones */
+.btn-enviar .btn i {
+  font-size: 1.3rem;
+  margin-right: 0.25rem;
+}
+
+/* Mejorar la legibilidad del texto */
+.btn-enviar .btn span {
+  white-space: nowrap; /* Evita que el texto se parta */
+}
+
+/* Ajustes específicos para tu HTML */
+#btnFormulario {
+  white-space: nowrap; /* Evita que "Crear Producto" se parta en dos líneas */
+}
+
+#btnCancelar {
+  white-space: nowrap; /* Evita que "Cancelar" se parta */
+}
+
+/* Eliminar estilos conflictivos del CSS anterior */
+button {
+  /* Elimina o ajusta estos estilos que pueden interferir */
+  flex: unset;
+  padding: unset;
+  background: unset;
+  border: unset;
+  color: unset;
+  border-radius: unset;
+  cursor: unset;
+  font-weight: unset;
+}
+
+button:nth-child(2) {
+  background: unset !important;
+}

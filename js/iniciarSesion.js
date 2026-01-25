@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }).then((result) => {
         // Redireccionar solo después de que el usuario haga clic en 'Continuar'
         if (result.isConfirmed) {
-          window.location.replace("../html/agregarProducto.html");
+          window.location.replace("../html/gestionProductos.html");
         }
       });
     } else {
