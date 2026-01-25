@@ -180,3 +180,49 @@ main {
   background: #7AD034  !important;
   transform: translateY(-2px);
 }
+
+   /* Estilos para mejorar la visualización de la imagen actual */
+      #imagenPreview {
+        margin-top: 1rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+      }
+      
+      #imagenPreview img {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        border-radius: 4px;
+      }
+
+      /* Asegurar que los botones mantengan su forma */
+      .btn-enviar {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-enviar .btn {
+        flex: 1 1 auto;
+        min-width: 150px;
+      }
+
+      @media (max-width: 768px) {
+        .btn-enviar .btn {
+          width: 100%;
+        }
+      }
+
+      /* Mantener proporciones del header */
+      .header-card {
+        min-height: fit-content;
+      }
+
+      .header-content {
+        flex: 1;
+      }
