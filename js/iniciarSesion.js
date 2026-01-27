@@ -21,21 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("loginData", JSON.stringify({usuario, contrasena}));
 
-    if (usuario === "Admin1234" && contrasena === "admin") {
-      // modal de SweetAlert2 de Éxito
-      Swal.fire({
-        title: "¡Bienvenido Admin!",
-        text: "Acceso concedido al panel de administración.",
-        icon: "success",
-        confirmButtonText: "Continuar",
-      }).then((result) => {
-        // Redireccionar solo después de que el usuario haga clic en 'Continuar'
-        if (result.isConfirmed) {
-          window.location.replace("../html/gestionProductos.html");
-        }
-      });
-    } else {
-
       fetch("http://localhost:8080/auth/loginConDTO", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -53,6 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
           let token = "Bearer " + data;
           
           localStorage.setItem("token", JSON.stringify({token}));
+
+          if (usuario === "Admin1234" && contrasena === "admin") {
+            // modal de SweetAlert2 de Éxito
+            Swal.fire({
+              title: "¡Bienvenido Admin!",
+              text: "Acceso concedido al panel de administración.",
+              icon: "success",
+              confirmButtonText: "Continuar",
+            }).then((result) => {
+              // Redireccionar solo después de que el usuario haga clic en 'Continuar'
+              if (result.isConfirmed) {
+                window.location.replace("../html/gestionProductos.html");
+              }
+            });
+
+            return;
+          }
 
           Swal.fire({
             title: "Ingreso Exitoso",
@@ -74,6 +76,5 @@ document.addEventListener("DOMContentLoaded", () => {
           });
           form.reset();
         });
-    }
   });
 });
